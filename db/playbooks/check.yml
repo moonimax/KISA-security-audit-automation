@@ -1,0 +1,116 @@
+---
+- name: KISA DBMS(MySQL) 취약점 점검
+  hosts: "{{ target_hosts | default('mysql_servers') }}"
+  become: true
+  gather_facts: false
+  vars:
+    mysql_security_local_report_dir: "{{ playbook_dir }}/../reports"
+
+  pre_tasks:
+    - name: 배포 여부 확인 (검증된 current release)
+      ansible.builtin.stat:
+        path: "{{ mysql_security_remote_dir }}/current/lib/run_checks.sh"
+      register: mysql_security_check_runner_stat
+
+    - name: 미배포 시 중단
+      ansible.builtin.assert:
+        that:
+          - mysql_security_check_runner_stat.stat.exists
+          - mysql_security_check_runner_stat.stat.isreg
+          - mysql_security_check_runner_stat.stat.executable
+        fail_msg: >-
+          {{ mysql_security_remote_dir }}/current/lib/run_checks.sh 를 실행할 수 없습니다.
+          먼저 ansible-playbook playbooks/deploy.yml 로 배포하세요.
+
+  tasks:
+    - name: 점검 설정 디렉터리 생성
+      ansible.builtin.file:
+        path: "{{ mysql_security_remote_dir }}/config"
+        state: directory
+        mode: "0750"
+
+    - name: MySQL 접속 정보 디렉터리 생성
+      ansible.builtin.file:
+        path: "{{ mysql_security_defaults_file | dirname }}"
+        state: directory
+        mode: "0700"
+
+    - name: MySQL 접속 정보 파일 배치
+      ansible.builtin.template:
+        src: ../templates/mysql_credentials.cnf.j2
+        dest: "{{ mysql_security_defaults_file }}"
+        mode: "0600"
+      no_log: true
+
+    - name: 점검 설정 파일 배치
+      ansible.builtin.template:
+        src: ../templates/mysql_security.conf.j2
+        dest: "{{ mysql_security_remote_dir }}/config/mysql_security.conf"
+        mode: "0640"
+
+    - name: 배치 runner로 D-01~D-25(MySQL 해당 항목) 점검 실행 (원격 호출 1회)
+      ansible.builtin.command:
+        cmd: "./lib/run_checks.sh"
+        chdir: "{{ mysql_security_remote_dir }}/current"
+      environment:
+        MYSQL_SECURITY_CONF: "{{ mysql_security_remote_dir }}/config/mysql_security.conf"
+      register: mysql_security_check_result
+      changed_when: false
+      failed_when: mysql_security_check_result.rc != 0
+
+    - name: 점검 결과 JSON Lines 파싱
+      ansible.builtin.set_fact:
+        mysql_security_findings: >-
+          {{ mysql_security_check_result.stdout_lines
+             | reject('equalto', '')
+             | map('from_json')
+             | list
+             | sort(attribute='code') }}
+
+    - name: 점검 결과 완전성 검증 (10개, 중복/누락 없음)
+      ansible.builtin.assert:
+        that:
+          - mysql_security_findings | length == 10
+          - mysql_security_findings | map(attribute='code') | unique | list | length == 10
+        fail_msg: >-
+          배치 runner 결과가 완전하지 않습니다. 결과 수={{ mysql_security_findings | length }},
+          codes={{ mysql_security_findings | map(attribute='code') | list | join(',') }}
+
+    - name: 로컬 리포트 디렉터리 생성 (컨트롤 노드)
+      ansible.builtin.file:
+        path: "{{ mysql_security_local_report_dir }}"
+        state: directory
+        mode: "0750"
+      delegate_to: localhost
+      become: false
+      run_once: false
+
+    - name: 서버별 점검 결과 JSON 저장 (컨트롤 노드)
+      ansible.builtin.copy:
+        content: "{{ mysql_security_findings | to_nice_json }}"
+        dest: "{{ mysql_security_local_report_dir }}/{{ inventory_hostname }}_mysql_dbms_check.json"
+      delegate_to: localhost
+      become: false
+
+    - name: 취약(FAIL) 항목 요약 출력
+      ansible.builtin.debug:
+        msg: >-
+          {{ inventory_hostname }} :
+          FAIL={{ mysql_security_findings | selectattr('status','equalto','취약') | list | length }},
+          MANUAL={{ mysql_security_findings | selectattr('status','equalto','점검필요') | list | length }},
+          PASS={{ mysql_security_findings | selectattr('status','equalto','양호') | list | length }}
+
+    - name: 취약(FAIL) 항목 상세 출력
+      ansible.builtin.debug:
+        var: item
+      loop: "{{ mysql_security_findings | selectattr('status','equalto','취약') | list }}"
+      loop_control:
+        label: "{{ item.code }}: {{ item.title }}"
+
+    - name: 취약 항목 존재 시 플레이 실패 처리 (선택)
+      ansible.builtin.assert:
+        that:
+          - (mysql_security_findings | selectattr('status','equalto','취약') | list | length) == 0
+        fail_msg: "{{ inventory_hostname }} 에서 {{ mysql_security_findings | selectattr('status','equalto','취약') | list | length }}개의 취약 항목이 발견되었습니다. 리포트를 확인하세요."
+        success_msg: "{{ inventory_hostname }} : 취약 항목 없음"
+      when: mysql_security_fail_on_finding | default(false)

@@ -1,0 +1,9 @@
+---
+- name: "[DBMS] check/fix/lib release 배포"
+  hosts: "{{ target_hosts | default('mysql_servers') }}"
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: DBMS 점검·조치 release 배포
+      ansible.builtin.import_tasks: ../tasks/deploy_release.yml

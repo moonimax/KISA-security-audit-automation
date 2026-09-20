@@ -1,0 +1,5 @@
+---
+- name: DBMS 승인조치 공통 구현 호출
+  ansible.builtin.import_playbook: _remediate.yml
+  vars:
+    dbms_remediation_mode: approved

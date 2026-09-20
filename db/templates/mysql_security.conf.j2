@@ -1,0 +1,19 @@
+
+MYSQL_DEFAULTS_FILE="{{ mysql_security_defaults_file }}"
+MYSQL_HOST="{{ mysql_security_conn_host | default('127.0.0.1') }}"
+MYSQL_PORT="{{ mysql_security_conn_port | default(3306) }}"
+
+ALLOWED_ADMIN_ACCOUNTS="{{ mysql_security_allowed_admin_accounts | join(' ') }}"
+ALLOWED_REMOTE_HOSTS="{{ mysql_security_allowed_remote_hosts | default([]) | join(' ') }}"
+
+MY_CNF_PATH="{{ mysql_security_my_cnf_path | default('/etc/my.cnf') }}"
+MYSQLD_EXPECTED_USER="{{ mysql_security_mysqld_user | default('mysql') }}"
+
+MIN_SAFE_VERSION="{{ mysql_security_min_safe_version | default('8.0.36') }}"
+
+PASSWORD_POLICY="{{ mysql_security_password_policy | default('MEDIUM') }}"
+PASSWORD_MIN_LENGTH="{{ mysql_security_password_min_length | default(8) }}"
+PASSWORD_MIXED_CASE_COUNT="{{ mysql_security_password_mixed_case_count | default(1) }}"
+PASSWORD_NUMBER_COUNT="{{ mysql_security_password_number_count | default(1) }}"
+PASSWORD_SPECIAL_CHAR_COUNT="{{ mysql_security_password_special_char_count | default(1) }}"
+PASSWORD_LIFETIME_DAYS="{{ mysql_security_password_lifetime_days | default(90) }}"

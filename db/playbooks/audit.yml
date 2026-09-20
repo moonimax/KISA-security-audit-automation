@@ -1,0 +1,7 @@
+---
+- name: DBMS 자동조치 공통 구현 호출
+  ansible.builtin.import_playbook: _remediate.yml
+  vars:
+    dbms_remediation_mode: audit
+    mysql_security_selected_codes: ""
+    mysql_security_confirm: false

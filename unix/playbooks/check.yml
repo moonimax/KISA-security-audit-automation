@@ -1,0 +1,91 @@
+---
+
+- name: "[project] KISA 취약점 점검 (U-01~U-67, 점검 전용)"
+  hosts: "{{ target_hosts | default('all') }}"
+  become: yes
+  gather_facts: no
+
+  pre_tasks:
+    - name: 배포 여부 확인 (검증된 current release)
+      ansible.builtin.stat:
+        path: "{{ kisa_remote_active_dir }}/lib/run_checks.sh"
+      register: kisa_check_runner_stat
+
+    - name: 미배포 시 중단
+      ansible.builtin.assert:
+        that:
+          - kisa_check_runner_stat.stat.exists
+          - kisa_check_runner_stat.stat.isreg
+          - kisa_check_runner_stat.stat.executable
+        fail_msg: >-
+          {{ kisa_remote_active_dir }}/lib/run_checks.sh 를 실행할 수 없습니다.
+          먼저 ansible-playbook playbooks/deploy.yml 로 배포하세요.
+
+  tasks:
+    - name: 배치 runner로 67개 점검 실행 (원격 호출 1회)
+      ansible.builtin.command:
+        cmd: "{{ kisa_remote_active_dir }}/lib/run_checks.sh"
+      environment:
+        KISA_CHECK_ITEM_TIMEOUT: "{{ kisa_check_item_timeout | string }}"
+      register: kisa_check_batch
+      changed_when: false
+      failed_when: kisa_check_batch.rc != 0
+
+    - name: 배치 점검 JSON Lines 파싱
+      ansible.builtin.set_fact:
+        kisa_results: >-
+          {{ kisa_check_batch.stdout_lines
+             | reject('equalto', '')
+             | map('from_json')
+             | list
+             | sort(attribute='code') }}
+
+    - name: 배치 점검 결과 완전성 검증 (67개, 중복/누락 없음)
+      ansible.builtin.assert:
+        that:
+          - kisa_results | length == 67
+          - kisa_results | map(attribute='code') | unique | list | length == 67
+          - kisa_results | map(attribute='code') | list == query('sequence', 'start=1 end=67 format=U-%02d')
+        fail_msg: >-
+          배치 runner 결과가 완전하지 않습니다. 결과 수={{ kisa_results | length }},
+          codes={{ kisa_results | map(attribute='code') | list | join(',') }}
+
+    - name: 점검 결과 요약 집계 (조치는 수행하지 않고 대상 목록만 추림)
+      ansible.builtin.set_fact:
+        kisa_summary:
+          total: "{{ kisa_results | length }}"
+          good: "{{ kisa_results | selectattr('status', 'equalto', '양호') | list | length }}"
+          vuln: "{{ kisa_results | selectattr('status', 'equalto', '취약') | list | length }}"
+          fail: "{{ kisa_results | selectattr('status', 'equalto', 'fail') | list | length }}"
+          auto_candidates: "{{ kisa_results | selectattr('status', 'equalto', '취약') | selectattr('action_tag', 'equalto', '자동조치') | map(attribute='code') | list }}"
+          approval_candidates: "{{ kisa_results | selectattr('status', 'equalto', '취약') | selectattr('action_tag', 'equalto', '승인요청') | map(attribute='code') | list }}"
+
+    - name: 콘솔 요약 출력
+      ansible.builtin.debug:
+        msg:
+          - "호스트: {{ inventory_hostname }}"
+          - "총 {{ kisa_summary.total }}개 중 양호 {{ kisa_summary.good }} / 취약 {{ kisa_summary.vuln }} / fail {{ kisa_summary.fail }}"
+          - >-
+            자동조치 대상(다음 단계: audit.yml): {{ kisa_summary.auto_candidates | join(', ')
+            if kisa_summary.auto_candidates | length > 0 else '없음' }}
+          - >-
+            승인요청 대상(다음 단계: remediate_approved.yml): {{ kisa_summary.approval_candidates | join(', ')
+            if kisa_summary.approval_candidates | length > 0 else '없음' }}
+
+  post_tasks:
+    - name: 리포트 디렉토리 생성 (컨트롤 노드)
+      ansible.builtin.file:
+        path: "{{ playbook_dir }}/../reports"
+        state: directory
+        mode: "0755"
+      delegate_to: localhost
+      become: no
+      run_once: true
+
+    - name: 점검 결과 JSON 저장 (컨트롤 노드) - audit.yml/remediate_approved.yml 의 입력
+      ansible.builtin.copy:
+        content: "{{ kisa_results | to_nice_json }}"
+        dest: "{{ playbook_dir }}/../reports/{{ inventory_hostname }}_check.json"
+        mode: "0644"
+      delegate_to: localhost
+      become: no

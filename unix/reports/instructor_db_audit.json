@@ -1,0 +1,1143 @@
+[
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-01",
+        "detail": "PermitRootLogin \uc774 'no' \ub85c \uc124\uc815\ub418\uc5b4 root \uacc4\uc815\uc758 \uc9c1\uc811 \uc6d0\uaca9(SSH) \uc811\uc18d\uc774 \uc81c\ud55c\ub418\uc5b4 \uc788\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "PermitRootLogin \uc774 'no' \ub85c \uc124\uc815\ub418\uc5b4 root \uacc4\uc815\uc758 \uc9c1\uc811 \uc6d0\uaca9(SSH) \uc811\uc18d\uc774 \uc81c\ud55c\ub418\uc5b4 \uc788\uc74c."
+        },
+        "impact": "sshd \uc124\uc815 \uc801\uc6a9\uc744 \uc704\ud574 \uc11c\ube44\uc2a4 reload/restart \uac00 \ud544\uc694\ud558\uba70, \uc6d0\uaca9 \uc811\uc18d \uc815\ucc45\uc774 \uc989\uc2dc \ubcc0\uacbd\ub418\uc5b4 \uad00\ub9ac\uc790\uc758 \uc7ac\uc811\uc18d \uacbd\ub85c\uc5d0 \uc601\ud5a5\uc744 \uc904 \uc218 \uc788\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:31+09:00",
+        "title": "root \uacc4\uc815 \uc6d0\uaca9 \uc811\uc18d \uc81c\ud55c"
+    },
+    {
+        "action": "\uc870\uce58",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-02",
+        "detail": "PASS_MIN_DAYS=1, PASS_MAX_DAYS=90, PASS_MIN_LEN=8, minclass=3\ub85c \uc124\uc815\ud558\uace0 pwquality.conf minlen=8 \uc801\uc6a9; \ucd5c\uadfc \ube44\ubc00\ubc88\ud638 4\ud68c \uae30\uc5b5 \uc815\ucc45 \uc801\uc6a9 \ubc0f PAM \uc5f0\ub3d9 \ud655\uc778. \ubc31\uc5c5: /etc/login.defs.bak.20260830181407 | \uc870\uce58 \ud6c4 \ucd5c\uc885 \ud655\uc778: \ube44\ubc00\ubc88\ud638 \uad00\ub9ac\uc815\ucc45 \ubbf8\ud761: \ucd5c\uadfc \ube44\ubc00\ubc88\ud638 \uae30\uc5b5=\ubbf8\uc801\uc6a9(4\ud68c \uc774\uc0c1 \ubc0f PAM \uc5f0\ub3d9 \ud544\uc694)",
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "PASS_MIN_DAYS=1, PASS_MAX_DAYS=90, PASS_MIN_LEN=8, minclass=3\ub85c \uc124\uc815\ud558\uace0 pwquality.conf minlen=8 \uc801\uc6a9; \ucd5c\uadfc \ube44\ubc00\ubc88\ud638 4\ud68c \uae30\uc5b5 \uc815\ucc45 \uc801\uc6a9 \ubc0f PAM \uc5f0\ub3d9 \ud655\uc778. \ubc31\uc5c5: /etc/login.defs.bak.20260830181407 | \uc870\uce58 \ud6c4 \ucd5c\uc885 \ud655\uc778: \ube44\ubc00\ubc88\ud638 \uad00\ub9ac\uc815\ucc45 \ubbf8\ud761: \ucd5c\uadfc \ube44\ubc00\ubc88\ud638 \uae30\uc5b5=\ubbf8\uc801\uc6a9(4\ud68c \uc774\uc0c1 \ubc0f PAM \uc5f0\ub3d9 \ud544\uc694)"
+        },
+        "impact": "\uc124\uc815 \ud30c\uc77c(login.defs, pwquality.conf) \uac12\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \uae30\uc874 \ub85c\uadf8\uc778 \uc138\uc158\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uace0, \uc2e0\uaddc \ube44\ubc00\ubc88\ud638 \ubcc0\uacbd \uc2dc\uc810\ubd80\ud130 \uc815\ucc45\uc774 \uc801\uc6a9\ub428",
+        "os_type": "rocky 9.8",
+        "severity": "\uc0c1",
+        "status": "\ucde8\uc57d",
+        "timestamp": "2026-08-30T18:14:07+09:00",
+        "title": "\ube44\ubc00\ubc88\ud638 \uad00\ub9ac\uc815\ucc45 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-03",
+        "detail": "faillock.conf \uac12\uacfc \ubb34\uad00\ud558\uac8c PAM \uc778\uc99d \uc2a4\ud0dd\uc5d0 pam_faillock/pam_tally2\uac00 \uc5f0\uacb0\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \uc7a0\uae08 \uc815\ucc45\uc774 \uc2e4\uc81c \uc801\uc6a9\ub418\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "PAM \uc7a0\uae08 \ubaa8\ub4c8": "\uc5f0\uacb0 \uc548 \ub428",
+            "\uc7a0\uae08 \uc784\uacc4\uac12": "\uc124\uc815 \uc548 \ub428"
+        },
+        "impact": "PAM \uc778\uc99d \uc2a4\ud0dd(faillock/tally2) \uc124\uc815\uc744 \ubcc0\uacbd\ud558\ub294 \ud56d\ubaa9\uc73c\ub85c, \uac12\uc774 \uc798\ubabb \uc801\uc6a9\ub420 \uacbd\uc6b0 SSH/\ucf58\uc194/su \ub4f1 \ubaa8\ub4e0 \ub85c\uadf8\uc778 \uacbd\ub85c\uac00 \ub3d9\uc2dc\uc5d0 \uc7a0\uae38 \uc704\ud5d8\uc774 \uc788\uc5b4 \uc11c\ube44\uc2a4 \uc601\ud5a5\ub3c4\uac00 \ub192\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\ucde8\uc57d",
+        "timestamp": "2026-08-30T18:12:31+09:00",
+        "title": "\uacc4\uc815 \uc7a0\uae08 \uc784\uacc4\uac12 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-04",
+        "detail": "/etc/shadow \uac00 \uc874\uc7ac\ud558\uace0 /etc/passwd \uc758 \ubaa8\ub4e0 \uacc4\uc815\uc774 shadow \ud328\uc2a4\uc6cc\ub4dc \uccb4\uacc4('x')\ub97c \uc0ac\uc6a9 \uc911\uc784.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/shadow \uac00 \uc874\uc7ac\ud558\uace0 /etc/passwd \uc758 \ubaa8\ub4e0 \uacc4\uc815\uc774 shadow \ud328\uc2a4\uc6cc\ub4dc \uccb4\uacc4('x')\ub97c \uc0ac\uc6a9 \uc911\uc784."
+        },
+        "impact": "pwconv \uc2e4\ud589\uc740 \uc2dc\uc2a4\ud15c \uc804\uccb4 \uacc4\uc815\uc758 \uc778\uc99d \uc815\ubcf4\ub97c passwd -> shadow \uccb4\uacc4\ub85c \ubcc0\ud658\ud558\ub294 \uc791\uc5c5\uc73c\ub85c, \ubcc0\ud658 \uc911 \uc624\ub958 \ubc1c\uc0dd \uc2dc \uc804 \uacc4\uc815 \ub85c\uadf8\uc778 \uc7a5\uc560\ub85c \uc774\uc5b4\uc9c8 \uc218 \uc788\ub294 \uace0\uc704\ud5d8 \uc791\uc5c5\uc784",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:31+09:00",
+        "title": "\ube44\ubc00\ubc88\ud638 \ud30c\uc77c \ubcf4\ud638"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-05",
+        "detail": "UID 0 \uc744 \uac00\uc9c4 \uacc4\uc815\uc740 root \ubfd0\uc774\uba70, \ub2e4\ub978 UID 0 \uacc4\uc815\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "UID 0 \uc744 \uac00\uc9c4 \uacc4\uc815\uc740 root \ubfd0\uc774\uba70, \ub2e4\ub978 UID 0 \uacc4\uc815\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "UID 0 \uacc4\uc815\uc744 \uc0ad\uc81c\ud558\uac70\ub098 UID\ub97c \ubcc0\uacbd\ud558\ub294 \uc791\uc5c5\uc774\uba70, \ud574\ub2f9 \uacc4\uc815\uc774 \uc2e4\uc81c\ub85c \uc0ac\uc6a9 \uc911\uc778 \ud504\ub85c\uc138\uc2a4/\ud30c\uc77c \uc18c\uc720\uad8c\uacfc \uc5bd\ud600 \uc788\uc744 \uacbd\uc6b0 \uc11c\ube44\uc2a4 \uc7a5\uc560\ub098 \uad8c\ud55c \ubb38\uc81c\ub97c \uc720\ubc1c\ud560 \uc218 \uc788\ub294 \ud30c\uad34\uc801 \ubcc0\uacbd\uc784",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "root \uc774\uc678\uc758 UID\uac00 '0' \uae08\uc9c0"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-06",
+        "detail": "/etc/pam.d/su \uc5d0 pam_wheel.so \uc81c\ud55c\uc774 \ud65c\uc131\ud654\ub418\uc5b4 \uc788\uc5b4 wheel \uadf8\ub8f9 \uacc4\uc815\ub9cc su \uc0ac\uc6a9\uc774 \uac00\ub2a5\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/pam.d/su \uc5d0 pam_wheel.so \uc81c\ud55c\uc774 \ud65c\uc131\ud654\ub418\uc5b4 \uc788\uc5b4 wheel \uadf8\ub8f9 \uacc4\uc815\ub9cc su \uc0ac\uc6a9\uc774 \uac00\ub2a5\ud568."
+        },
+        "impact": "su \uba85\ub839\uc5b4\uc5d0\ub9cc \uad6d\ud55c\ub41c PAM \uc124\uc815 \ucd94\uac00\ub85c, \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud558\uace0 SSH \ub4f1 \uae30\uc874 \ub85c\uadf8\uc778 \uc138\uc158\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c. \ub2e8, wheel \uadf8\ub8f9\uc5d0 \uc18d\ud558\uc9c0 \uc54a\uc740 \uacc4\uc815\uc740 \uc774\ud6c4 su \uc0ac\uc6a9\uc774 \uc81c\ud55c\ub428",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\uc0ac\uc6a9\uc790 \uacc4\uc815 su \uae30\ub2a5 \uc81c\ud55c"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-07",
+        "detail": "\ud14c\uc2a4\ud2b8/\uc784\uc2dc \uc131\uaca9\uc758 \ub85c\uadf8\uc778 \uac00\ub2a5 \uacc4\uc815\uc774 \ubc1c\uacac\ub418\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ud14c\uc2a4\ud2b8/\uc784\uc2dc \uc131\uaca9\uc758 \ub85c\uadf8\uc778 \uac00\ub2a5 \uacc4\uc815\uc774 \ubc1c\uacac\ub418\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "userdel \uc740 \uacc4\uc815 \ubc0f \ud648 \ub514\ub809\ud1a0\ub9ac \ub370\uc774\ud130\ub97c \uc0ad\uc81c\ud558\ub294 \ud30c\uad34\uc801 \uc791\uc5c5\uc774\uba70, \uc5b4\ub5a4 \uacc4\uc815\uc774 \uc2e4\uc81c\ub85c \ubd88\ud544\uc694\ud55c\uc9c0\ub294 \uc5c5\ubb34 \ub9e5\ub77d\uc5d0 \ub300\ud55c \uad00\ub9ac\uc790\uc758 \uc8fc\uad00\uc801 \ud310\ub2e8\uc774 \ubc18\ub4dc\uc2dc \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\ubd88\ud544\uc694\ud55c \uacc4\uc815 \uc81c\uac70"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-08",
+        "detail": "GID 0(\uad00\ub9ac\uc790) \uadf8\ub8f9\uc758 \ubd80\uac00 \uba64\ubc84 \ubaa9\ub85d\uc774 \ube44\uc5b4 \uc788\uc5b4 \ucd5c\uc18c \uad8c\ud55c \uc6d0\uce59\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "GID 0(\uad00\ub9ac\uc790) \uadf8\ub8f9\uc758 \ubd80\uac00 \uba64\ubc84 \ubaa9\ub85d\uc774 \ube44\uc5b4 \uc788\uc5b4 \ucd5c\uc18c \uad8c\ud55c \uc6d0\uce59\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "root \uad8c\ud55c \uadf8\ub8f9(gid 0)\uc5d0\uc11c \uacc4\uc815\uc744 \uc81c\uc678\ud558\ub294 \uc791\uc5c5\uc73c\ub85c, \uc5b4\ub5a4 \uacc4\uc815\uc744 \ub0a8\uaca8\uc57c \ud558\ub294\uc9c0\ub294 \uc6b4\uc601 \uc815\ucc45\uc5d0 \ub300\ud55c \uad00\ub9ac\uc790\uc758 \ud310\ub2e8\uc774 \ud544\uc694\ud568. \uc798\ubabb \uc81c\uc678 \uc2dc \uc815\uc0c1 \uc6b4\uc601\uc790\uc758 \uad00\ub9ac\uc790 \uad8c\ud55c\uc774 \uc0c1\uc2e4\ub420 \uc218 \uc788\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\uad00\ub9ac\uc790 \uadf8\ub8f9\uc5d0 \ucd5c\uc18c\ud55c\uc758 \uacc4\uc815 \ud3ec\ud568"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-09",
+        "detail": "\uae30\ubcf8 GID\ub098 \ubcf4\uc870 \uad6c\uc131\uc6d0\uc73c\ub85c \uc5b4\ub5a4 \uacc4\uc815\uacfc\ub3c4 \uc5f0\uacb0\ub418\uc9c0 \uc54a\uc740 \uadf8\ub8f9 \ubc1c\uacac(\uc5c5\ubb34\uc0c1 \ud544\uc694 \uc5ec\ubd80 \ud655\uc778 \ud544\uc694): sys(gid=3),tty(gid=5),disk(gid=6),mem(gid=8),kmem(gid=9),cdrom(gid=11),man(gid=15),dialout(gid=18),floppy(gid=19),games(gid=20),tape(gid=33),video(gid=39),lock(gid=54),audio(gid=63),utmp(gid=22),utempter(gid=35),input(gid=104),kvm(gid=36),render(gid=105),sgx(gid=106),systemd-journal(gid=190),printadmin(gid=997),ssh_keys(gid=101),brlapi(gid=988),slocate(gid=21)",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uae30\ubcf8 GID\ub098 \ubcf4\uc870 \uad6c\uc131\uc6d0\uc73c\ub85c \uc5b4\ub5a4 \uacc4\uc815\uacfc\ub3c4 \uc5f0\uacb0\ub418\uc9c0 \uc54a\uc740 \uadf8\ub8f9 \ubc1c\uacac(\uc5c5\ubb34\uc0c1 \ud544\uc694 \uc5ec\ubd80 \ud655\uc778 \ud544\uc694): sys(gid=3),tty(gid=5),disk(gid=6),mem(gid=8),kmem(gid=9),cdrom(gid=11),man(gid=15),dialout(gid=18),floppy(gid=19),games(gid=20),tape(gid=33),video(gid=39),lock(gid=54),audio(gid=63),utmp(gid=22),utempter(gid=35),input(gid=104),kvm(gid=36),render(gid=105),sgx(gid=106),systemd-journal(gid=190),printadmin(gid=997),ssh_keys(gid=101),brlapi(gid=988),slocate(gid=21)"
+        },
+        "impact": "\uacc4\uc815\uacfc \uc5f0\uacb0\ub418\uc9c0 \uc54a\uc740 \uadf8\ub8f9\ub3c4 \uc11c\ube44\uc2a4 \uc608\uc57d \uadf8\ub8f9\uc77c \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uac80\ud1a0\uac00 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\ucde8\uc57d",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\ubd88\ud544\uc694\ud558\uac70\ub098 \uacc4\uc815\uacfc \uc5f0\uacb0\ub418\uc9c0 \uc54a\uc740 \uadf8\ub8f9 \uc81c\uac70"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-10",
+        "detail": "\ubaa8\ub4e0 \uacc4\uc815\uc758 UID\uac00 \uace0\uc720\ud568(\uc911\ubcf5 \uc5c6\uc74c).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ubaa8\ub4e0 \uacc4\uc815\uc758 UID\uac00 \uace0\uc720\ud568(\uc911\ubcf5 \uc5c6\uc74c)."
+        },
+        "impact": "usermod -u \ub85c UID\ub97c \ubcc0\uacbd\ud558\uba74 \ud574\ub2f9 UID\ub85c \uc18c\uc720\ub41c \uae30\uc874 \ud30c\uc77c\ub4e4\uc758 \uc18c\uc720\uad8c\uc774 \uc790\ub3d9\uc73c\ub85c \uac31\uc2e0\ub418\uc9c0 \uc54a\uc544 \ud30c\uc77c \uc18c\uc720\uad8c \ubd88\uc77c\uce58\uac00 \ubc1c\uc0dd\ud560 \uc218 \uc788\uc74c. \uc5b4\ub5a4 \uacc4\uc815\uc758 UID\ub97c \ub0a8\uae30\uace0 \uc5b4\ub5a4 \uacc4\uc815\uc744 \ubcc0\uacbd\ud560\uc9c0\ub3c4 \uad00\ub9ac\uc790 \ud310\ub2e8\uc774 \ud544\uc694\ud55c \ud30c\uad34\uc801 \ubcc0\uacbd\uc784",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\ub3d9\uc77c\ud55c UID \uae08\uc9c0"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-11",
+        "detail": "UID 201~999 \ubc94\uc704\uc758 \uc2dc\uc2a4\ud15c \uacc4\uc815\uc740 \ubaa8\ub450 nologin/false \ub4f1 \ube44\ub300\ud654\ud615 \uc178\uc744 \uc0ac\uc6a9 \uc911\uc784.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "UID 201~999 \ubc94\uc704\uc758 \uc2dc\uc2a4\ud15c \uacc4\uc815\uc740 \ubaa8\ub450 nologin/false \ub4f1 \ube44\ub300\ud654\ud615 \uc178\uc744 \uc0ac\uc6a9 \uc911\uc784."
+        },
+        "impact": "\ub300\uc0c1 \uacc4\uc815\uc758 \ub85c\uadf8\uc778 \uc178\ub9cc nologin\uc73c\ub85c \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. usermod -s \ub85c \uc989\uc2dc \ub418\ub3cc\ub9b4 \uc218 \uc788\ub294 \uac00\uc5ed\uc801 \ubcc0\uacbd\uc774\ub098, \uadf9\ud788 \uc77c\ubd80 \ud2b9\uc218 \ubaa9\uc801 \uc11c\ube44\uc2a4 \uacc4\uc815\uc774 \uc178 \uc2e4\ud589\uc744 \ud544\uc694\ub85c \ud558\ub294 \uacbd\uc6b0 \uc601\ud5a5\uc774 \uc788\uc744 \uc218 \uc788\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\uc0ac\uc6a9\uc790 shell \uc810\uac80"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-12",
+        "detail": "TMOUT=600\ucd08 \ub85c 600\ucd08 \uc774\ud558 \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "TMOUT=600\ucd08 \ub85c 600\ucd08 \uc774\ud558 \uae30\uc900\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "\uc2e0\uaddc \ub85c\uadf8\uc778 \uc178 \ud504\ub85c\ud30c\uc77c\uc5d0\ub9cc \uc801\uc6a9\ub418\ub294 \uc124\uc815 \ud30c\uc77c \ucd94\uac00\ub85c \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \uc774\ubbf8 \uc811\uc18d \uc911\uc778 \uc138\uc158\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uace0, \uc2e0\uaddc \uc138\uc158\ubd80\ud130 \uc720\ud734 \uc2dc\uac04 \ucd08\uacfc \uc2dc \uc790\ub3d9 \ub85c\uadf8\uc544\uc6c3\ub428",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\uc138\uc158 \uc885\ub8cc \uc2dc\uac04 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-13",
+        "detail": "/etc/login.defs \uc758 ENCRYPT_METHOD=sha512 \ub85c \uc548\uc804\ud55c \uc54c\uace0\ub9ac\uc998\uc774 \uc124\uc815\ub418\uc5b4 \uc788\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/login.defs \uc758 ENCRYPT_METHOD=sha512 \ub85c \uc548\uc804\ud55c \uc54c\uace0\ub9ac\uc998\uc774 \uc124\uc815\ub418\uc5b4 \uc788\uc74c."
+        },
+        "impact": "login.defs \uac12 \ubc0f PAM \ube44\ubc00\ubc88\ud638(password) \uc2a4\ud0dd\uc758 pam_unix.so \uc635\uc158\ub9cc \ubcc0\uacbd\ub418\uba70, \ub85c\uadf8\uc778(auth) \uc2a4\ud0dd\uc740 \uac74\ub4dc\ub9ac\uc9c0 \uc54a\uc544 \uc7ac\uc2dc\uc791\uc774\ub098 \uae30\uc874 \uc138\uc158 \uc601\ud5a5\uc774 \uc5c6\uc74c. \uc2e0\uaddc\ub85c \uc124\uc815\ub418\ub294 \ube44\ubc00\ubc88\ud638\ubd80\ud130 \uac15\ud55c \uc54c\uace0\ub9ac\uc998\uc774 \uc801\uc6a9\ub418\uace0 \uae30\uc874 \ud574\uc2dc\ub294 \uc720\uc9c0\ub428",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:32+09:00",
+        "title": "\uc548\uc804\ud55c \ube44\ubc00\ubc88\ud638 \uc554\ud638\ud654 \uc54c\uace0\ub9ac\uc998 \uc0ac\uc6a9"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-14",
+        "detail": "root PATH\uc758 \uc55e/\uc911\uac04\uc5d0 '.' \ub610\ub294 \ube48 \ud56d\ubaa9\uc774 \uc5c6\uc73c\uba70, \uba85\uc2dc\uc801 '.'\uc740 \ub9c8\uc9c0\ub9c9 \uc704\uce58\uc5d0\uc11c\ub9cc \ud5c8\uc6a9\ub428.",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "root PATH\uc758 \uc55e/\uc911\uac04\uc5d0 '.' \ub610\ub294 \ube48 \ud56d\ubaa9\uc774 \uc5c6\uc73c\uba70, \uba85\uc2dc\uc801 '.'\uc740 \ub9c8\uc9c0\ub9c9 \uc704\uce58\uc5d0\uc11c\ub9cc \ud5c8\uc6a9\ub428."
+        },
+        "impact": "root \uacc4\uc815\uc758 PATH \ubb38\uc790\uc5f4 \uc815\ub9ac \ubc0f /root \ub514\ub809\ud1a0\ub9ac \uad8c\ud55c \ucd95\uc18c\ub9cc \uc218\ud589\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \uae30\uc874 root \uc138\uc158\uc758 \ud658\uacbd\ubcc0\uc218\ub294 \uc989\uc2dc \ubc14\ub00c\uc9c0 \uc54a\uace0 \ub2e4\uc74c \ub85c\uadf8\uc778\ubd80\ud130 \uc801\uc6a9\ub428",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:33+09:00",
+        "title": "root \ud648, \ud328\uc2a4 \ub514\ub809\ud130\ub9ac \uad8c\ud55c \ubc0f \ud328\uc2a4 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-15",
+        "detail": "\ub8e8\ud2b8 \ud30c\uc77c\uc2dc\uc2a4\ud15c \ub0b4\uc5d0\uc11c \uc18c\uc720\uc790/\uadf8\ub8f9\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\ub294 \ud30c\uc77c\uc744 \ubc1c\uacac\ud558\uc9c0 \ubabb\ud568.",
+        "duration_seconds": 17,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ub8e8\ud2b8 \ud30c\uc77c\uc2dc\uc2a4\ud15c \ub0b4\uc5d0\uc11c \uc18c\uc720\uc790/\uadf8\ub8f9\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\ub294 \ud30c\uc77c\uc744 \ubc1c\uacac\ud558\uc9c0 \ubabb\ud568."
+        },
+        "impact": "\ud0d0\uc9c0\ub41c \ud30c\uc77c\uc758 \uc2e4\uc81c \uc6a9\ub3c4\uc640 \uc18c\uc720\uad8c \uc7ac\uc9c0\uc815(\ub610\ub294 \uc0ad\uc81c) \ud544\uc694 \uc5ec\ubd80\ub294 \uad00\ub9ac\uc790\uc758 \ud655\uc778\uc774 \ud544\uc694\ud568. \uc18c\uc720\uc790\uac00 \uc5c6\ub294 \ud30c\uc77c\uc740 \uc0ad\uc81c\ub41c \uacc4\uc815\uc758 \uc794\uc874\ubb3c\uc77c \uc218\ub3c4, \uce68\ud574\uc0ac\uace0\uc758 \ud754\uc801\uc77c \uc218\ub3c4 \uc788\uc5b4 \uc790\ub3d9\uc73c\ub85c \ud310\ub2e8\ud560 \uc218 \uc5c6\ub294 \ud56d\ubaa9\uc784",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:50+09:00",
+        "title": "\ud30c\uc77c \ubc0f \ub514\ub809\ud130\ub9ac \uc18c\uc720\uc790 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-16",
+        "detail": "/etc/passwd \uc18c\uc720\uc790=root, \uad8c\ud55c=644 \ub85c \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uad8c\ud55c": "644",
+            "\uadf8\ub8f9": "root",
+            "\uc18c\uc720\uc790": "root",
+            "\ud30c\uc77c \uacbd\ub85c": "/etc/passwd"
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud558\uace0 \uae30\uc874 \uc138\uc158\uc5d0 \uc601\ud5a5\uc774 \uc5c6\uc74c. \ub2e8\uc21c \uad8c\ud55c \ucd95\uc18c(chmod)\uc5d0 \ud574\ub2f9\ud558\ub294 \uc800\uc704\ud5d8 \ubcc0\uacbd\uc784",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:51+09:00",
+        "title": "/etc/passwd \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-17",
+        "detail": "\uc810\uac80\ub41c \uc2dc\uc791 \uc2a4\ud06c\ub9bd\ud2b8 1\uac74 \ubaa8\ub450 \uc18c\uc720\uc790 root, other \uc4f0\uae30 \uad8c\ud55c \uc5c6\uc74c\uc744 \ud655\uc778\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc810\uac80\ub41c \uc2dc\uc791 \uc2a4\ud06c\ub9bd\ud2b8 1\uac74 \ubaa8\ub450 \uc18c\uc720\uc790 root, other \uc4f0\uae30 \uad8c\ud55c \uc5c6\uc74c\uc744 \ud655\uc778\ud568."
+        },
+        "impact": "\ub300\uc0c1 \ud30c\uc77c\ub4e4\uc758 \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \ub2e4\uc74c \ubd80\ud305 \ub610\ub294 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791 \uc2dc\uc810\ubd80\ud130 \uc815\uc0c1\uc801\uc73c\ub85c \uc7ac\uc801\uc6a9\ub418\ubbc0\ub85c \uc989\uc2dc \uc11c\ube44\uc2a4\uc5d0 \uc601\ud5a5\uc744 \uc8fc\uc9c0 \uc54a\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:51+09:00",
+        "title": "\uc2dc\uc2a4\ud15c \uc2dc\uc791 \uc2a4\ud06c\ub9bd\ud2b8 \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-18",
+        "detail": "/etc/shadow \uc18c\uc720\uc790=root, \uad8c\ud55c=0 \ub85c \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/shadow \uc18c\uc720\uc790=root, \uad8c\ud55c=0 \ub85c \uae30\uc900\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. passwd/login \ub4f1 \uad00\ub828 \uc720\ud2f8\ub9ac\ud2f0\ub294 setuid-root \ub85c \ub3d9\uc791\ud558\ubbc0\ub85c \uc77c\ubc18\uc801\uc73c\ub85c \uc601\ud5a5\uc774 \uc5c6\uc73c\ub098, \ucee4\uc2a4\ud140 \uc2a4\ud06c\ub9bd\ud2b8\uac00 \ube44root \uad8c\ud55c\uc73c\ub85c shadow \ub97c \uc9c1\uc811 \uc77d\ub294 \uacbd\uc6b0\uac00 \uc788\ub2e4\uba74 \ud655\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:51+09:00",
+        "title": "/etc/shadow \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-19",
+        "detail": "/etc/hosts \uc18c\uc720\uc790=root, \uad8c\ud55c=644 \ub85c \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/hosts \uc18c\uc720\uc790=root, \uad8c\ud55c=644 \ub85c \uae30\uc900\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud558\uace0 \uc774\ub984 \ud574\uc11d(name resolution) \ub3d9\uc791\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:51+09:00",
+        "title": "/etc/hosts \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-20",
+        "detail": "inetd.conf/xinetd.conf/xinetd.d \ub97c \ucc3e\uc744 \uc218 \uc5c6\uc5b4 (x)inetd \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "inetd.conf/xinetd.conf/xinetd.d \ub97c \ucc3e\uc744 \uc218 \uc5c6\uc5b4 (x)inetd \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. (x)inetd \ub370\ubaac\uc740 \ub2e4\uc74c \uc7ac\uc2dc\uc791 \uc2dc\uc810\ubd80\ud130 \uc0c8 \ud30c\uc77c \uad8c\ud55c\uc73c\ub85c \ub3d9\uc791\ud558\uba70, \uc774\ubbf8 \uae30\ub3d9\ub41c \uc288\ud37c\ub370\ubaac\uc758 \ud604\uc7ac \ub3d9\uc791\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:51+09:00",
+        "title": "/etc/(x)inetd.conf \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-21",
+        "detail": "\uc810\uac80\ub41c (r)syslog \uc124\uc815 \ud30c\uc77c 2\uac74 \ubaa8\ub450 \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc810\uac80\ub41c (r)syslog \uc124\uc815 \ud30c\uc77c 2\uac74 \ubaa8\ub450 \uae30\uc900\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. syslog/rsyslog \ub370\ubaac\uc740 \ub2e4\uc74c \uc7ac\uc2dc\uc791 \uc2dc\uc810\ubd80\ud130 \uc0c8 \uad8c\ud55c\uc73c\ub85c \ud30c\uc77c\uc744 \ub2e4\ub8e8\uba70, \uc774\ubbf8 \uc5f4\ub824 \uc788\ub294 \ub85c\uadf8 \ud30c\uc77c \ub514\uc2a4\ud06c\ub9bd\ud130\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:51+09:00",
+        "title": "/etc/(r)syslog.conf \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-22",
+        "detail": "/etc/services \uc18c\uc720\uc790=root, \uad8c\ud55c=644 \ub85c \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/services \uc18c\uc720\uc790=root, \uad8c\ud55c=644 \ub85c \uae30\uc900\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud558\uace0 \ud3ec\ud2b8-\uc11c\ube44\uc2a4\uba85 \uc870\ud68c \ub3d9\uc791\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:51+09:00",
+        "title": "/etc/services \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-23",
+        "detail": "\ubc1c\uacac\ub41c \ubaa8\ub4e0 SUID/SGID \ud30c\uc77c\uc774 \ud45c\uc900 \uc720\ud2f8\ub9ac\ud2f0 \ud654\uc774\ud2b8\ub9ac\uc2a4\ud2b8 \ub0b4\uc5d0 \uc788\uc74c.",
+        "duration_seconds": 3,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ubc1c\uacac\ub41c \ubaa8\ub4e0 SUID/SGID \ud30c\uc77c\uc774 \ud45c\uc900 \uc720\ud2f8\ub9ac\ud2f0 \ud654\uc774\ud2b8\ub9ac\uc2a4\ud2b8 \ub0b4\uc5d0 \uc788\uc74c."
+        },
+        "impact": "chmod \ub85c SUID/SGID \ube44\ud2b8\ub9cc \uc81c\uac70\ud558\ub294 \uac00\uc5ed\uc801 \ubcc0\uacbd(\ud30c\uc77c \uc0ad\uc81c \uc544\ub2d8)\uc774\uc9c0\ub9cc, \ud654\uc774\ud2b8\ub9ac\uc2a4\ud2b8\uc5d0 \uc5c6\ub294 SUID \ubc14\uc774\ub108\ub9ac\uac00 \uc2e4\uc81c\ub85c\ub294 \uc11c\ubc84\uc5d0 \uc124\uce58\ub41c \uc815\uc0c1 \uc18c\ud504\ud2b8\uc6e8\uc5b4(DB, \ubc31\uc5c5 \uc5d0\uc774\uc804\ud2b8 \ub4f1)\uc758 \uad8c\ud55c \uc0c1\uc2b9 \uba54\ucee4\ub2c8\uc998\uc77c \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790\uc758 \ub3c4\uba54\uc778 \ud310\ub2e8\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:54+09:00",
+        "title": "SUID, SGID, Sticky bit \uc124\uc815 \ud30c\uc77c \uc810\uac80"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-24",
+        "detail": "\uc810\uac80\ub41c \uc0ac\uc6a9\uc790/\uc2dc\uc2a4\ud15c \ud658\uacbd\ubcc0\uc218 \ud30c\uc77c \ubaa8\ub450 \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc810\uac80\ub41c \uc0ac\uc6a9\uc790/\uc2dc\uc2a4\ud15c \ud658\uacbd\ubcc0\uc218 \ud30c\uc77c \ubaa8\ub450 \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uae30\uc900\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "\ud658\uacbd\ubcc0\uc218 \ud30c\uc77c\uc758 \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \ub2e4\uc74c \ub85c\uadf8\uc778 \uc178 \uc0dd\uc131 \uc2dc\uc810\ubd80\ud130 \ubc18\uc601\ub418\uace0 \uae30\uc874 \uc138\uc158\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:54+09:00",
+        "title": "\uc0ac\uc6a9\uc790, \uc2dc\uc2a4\ud15c \ud658\uacbd\ubcc0\uc218 \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-25",
+        "detail": "\ub8e8\ud2b8 \ud30c\uc77c\uc2dc\uc2a4\ud15c \ub0b4\uc5d0\uc11c world writable \ud30c\uc77c\uc744 \ubc1c\uacac\ud558\uc9c0 \ubabb\ud568.",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ub8e8\ud2b8 \ud30c\uc77c\uc2dc\uc2a4\ud15c \ub0b4\uc5d0\uc11c world writable \ud30c\uc77c\uc744 \ubc1c\uacac\ud558\uc9c0 \ubabb\ud568."
+        },
+        "impact": "chmod \ub85c other \uc4f0\uae30 \uad8c\ud55c\ub9cc \uc81c\uac70\ud558\ub294 \uac00\uc5ed\uc801 \ubcc0\uacbd\uc774\uc9c0\ub9cc, \uba54\uc77c \uc2a4\ud480\u00b7IPC \uc18c\ucf13\u00b7\uacf5\uc720 \ub85c\uadf8 \ub4f1 \uc758\ub3c4\uc801\uc73c\ub85c world-writable \ub85c \uad6c\uc131\ub41c \ud30c\uc77c\uc774 \uc874\uc7ac\ud560 \uc218 \uc788\uc5b4 \uac1c\ubcc4 \ud30c\uc77c\uc5d0 \ub300\ud55c \uad00\ub9ac\uc790 \uac80\ud1a0 \uc5c6\uc774 \uc77c\uad04 \uc870\uce58\ud560 \uacbd\uc6b0 \uc815\uc0c1 \uc11c\ube44\uc2a4\uac00 \uae68\uc9c8 \uc704\ud5d8\uc774 \uc788\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:55+09:00",
+        "title": "world writable \ud30c\uc77c \uc810\uac80"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-26",
+        "detail": "/dev \ub0b4\ubd80\uc5d0 \uc77c\ubc18 \ud30c\uc77c\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/dev \ub0b4\ubd80\uc5d0 \uc77c\ubc18 \ud30c\uc77c\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\ubc1c\uacac\ub41c \ub514\ubc14\uc774\uc2a4 \ud30c\uc77c\uc774 \uc815\uc0c1 \uc124\uce58 \uacfc\uc815\uc758 \uc794\uc7ac\uc778\uc9c0 \uc740\ub2c9 \ucc44\ub110\uc778\uc9c0 \ud310\ub2e8\uc774 \ud544\uc694\ud558\uba70, \uc0ad\uc81c(rm)\ub294 \ub418\ub3cc\ub9b4 \uc218 \uc5c6\ub294 \ud30c\uad34\uc801 \ubcc0\uacbd\uc774\ub77c \uad00\ub9ac\uc790 \ud655\uc778 \uc5c6\uc774 \uc790\ub3d9 \uc2e4\ud589\ud558\uc9c0 \uc54a\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:55+09:00",
+        "title": "/dev\uc5d0 \uc874\uc7ac\ud558\uc9c0 \uc54a\ub294 device \ud30c\uc77c \uc810\uac80"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-27",
+        "detail": ".rhosts \ud30c\uc77c\uc774 \uc874\uc7ac\ud558\ub294 \uacc4\uc815\uc774 \uc5c6\uace0, hosts.equiv \ub3c4 \uc5c6\uac70\ub098 \ube44\uc5b4\uc788\uc74c(\uc8fc\uc11d \uc81c\uc678).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": ".rhosts \ud30c\uc77c\uc774 \uc874\uc7ac\ud558\ub294 \uacc4\uc815\uc774 \uc5c6\uace0, hosts.equiv \ub3c4 \uc5c6\uac70\ub098 \ube44\uc5b4\uc788\uc74c(\uc8fc\uc11d \uc81c\uc678)."
+        },
+        "impact": "\ud30c\uc77c\uc744 \uc989\uc2dc \uc0ad\uc81c(rm)\ud558\uc9c0 \uc54a\uace0 .disabled \ub85c \uc774\ub984\uc744 \ubc14\uafd4 \uc2e0\ub8b0 \uae30\ubc18 \uc778\uc99d \uae30\ub2a5\ub9cc \ubb34\ub825\ud654\ud558\ub294 \uac00\uc5ed\uc801 \uc870\uce58\uc774\ub098, \uadf9\ud788 \ub4dc\ubb3c\uac8c \uc815\uc0c1\uc801\uc778 \ud074\ub7ec\uc2a4\ud130/HPC \ud658\uacbd\uc5d0\uc11c r-\uacc4\uc5f4 \ud2b8\ub7ec\uc2a4\ud2b8\ub97c \uc758\ub3c4\uc801\uc73c\ub85c \uc0ac\uc6a9 \uc911\uc77c \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \ud655\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:55+09:00",
+        "title": "$HOME/.rhosts, hosts.equiv \uc0ac\uc6a9 \uae08\uc9c0"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-28",
+        "detail": "\uc811\uc18d \uc81c\uc5b4 \uba54\ucee4\ub2c8\uc998 \ud655\uc778\ub428: firewalld \ud65c\uc131;nftables \uaddc\uce59 \ub85c\ub4dc\ub428;iptables INPUT policy=ACCEPT, \uaddc\uce59 1\uac74",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc811\uc18d \uc81c\uc5b4 \uba54\ucee4\ub2c8\uc998 \ud655\uc778\ub428: firewalld \ud65c\uc131;nftables \uaddc\uce59 \ub85c\ub4dc\ub428;iptables INPUT policy=ACCEPT, \uaddc\uce59 1\uac74"
+        },
+        "impact": "TCP Wrappers \ub610\ub294 \ubc29\ud654\ubcbd \uaddc\uce59 \ubcc0\uacbd\uc740 \uad00\ub9ac\uc790\uc758 \ud604\uc7ac SSH \uc811\uc18d \uc790\uccb4\ub97c \ucc28\ub2e8\ud560 \uc218 \uc788\ub294 \uc138\uc158 \ub2e8\uc808 \uc704\ud5d8\uc774 \uc788\uc73c\uba70, \uc5b4\ub5a4 IP/\ud3ec\ud2b8\ub97c \ud5c8\uc6a9\ud560\uc9c0\ub294 \uc11c\ube44\uc2a4 \uc6b4\uc601 \uc815\ucc45\uc5d0 \ub300\ud55c \uad00\ub9ac\uc790 \ud310\ub2e8\uc774 \ubc18\ub4dc\uc2dc \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:55+09:00",
+        "title": "\uc811\uc18d IP \ubc0f \ud3ec\ud2b8 \uc81c\ud55c"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-29",
+        "detail": "/etc/hosts.lpd \ud30c\uc77c\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\uc544 lpd \uc11c\ube44\uc2a4 \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/hosts.lpd \ud30c\uc77c\uc774 \uc874\uc7ac\ud558\uc9c0 \uc54a\uc544 lpd \uc11c\ube44\uc2a4 \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:55+09:00",
+        "title": "hosts.lpd \ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-30",
+        "detail": "\ud655\uc778\ub41c \ubaa8\ub4e0 UMASK \uc124\uc815\uc774 group/other \uc4f0\uae30 \uad8c\ud55c\uc744 \ucc28\ub2e8\ud568(\uc608: 022 \uc774\uc0c1).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ud655\uc778\ub41c \ubaa8\ub4e0 UMASK \uc124\uc815\uc774 group/other \uc4f0\uae30 \uad8c\ud55c\uc744 \ucc28\ub2e8\ud568(\uc608: 022 \uc774\uc0c1)."
+        },
+        "impact": "\uc124\uc815 \ud30c\uc77c \uac12\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \uc774\ubbf8 \ub85c\uadf8\uc778\ub41c \uc138\uc158\uc758 UMASK \ub294 \ubc14\ub00c\uc9c0 \uc54a\uace0, \uc2e0\uaddc \uc138\uc158/\ud504\ub85c\uc138\uc2a4\ubd80\ud130 \uc801\uc6a9\ub428",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:55+09:00",
+        "title": "UMASK \uc124\uc815 \uad00\ub9ac"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-31",
+        "detail": "\uc810\uac80\ub41c \uc2e4\uc0ac\uc6a9\uc790 \ud648 \ub514\ub809\ud1a0\ub9ac(UID>=1000 \ubc0f root) \ubaa8\ub450 \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uae30\uc900\uc744 \ucda9\uc871\ud568.",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc810\uac80\ub41c \uc2e4\uc0ac\uc6a9\uc790 \ud648 \ub514\ub809\ud1a0\ub9ac(UID>=1000 \ubc0f root) \ubaa8\ub450 \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uae30\uc900\uc744 \ucda9\uc871\ud568."
+        },
+        "impact": "\ud648 \ub514\ub809\ud1a0\ub9ac \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \ub2e4\uc74c \ub85c\uadf8\uc778\ubd80\ud130 \ubc18\uc601\ub418\uace0 \uae30\uc874 \uc138\uc158\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "\ud648 \ub514\ub809\ud1a0\ub9ac \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-32",
+        "detail": "\ub85c\uadf8\uc778 \uac00\ub2a5\ud55c \ubaa8\ub4e0 \uacc4\uc815\uc758 \ud648 \ub514\ub809\ud1a0\ub9ac\uac00 \uc2e4\uc81c\ub85c \uc874\uc7ac\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ub85c\uadf8\uc778 \uac00\ub2a5\ud55c \ubaa8\ub4e0 \uacc4\uc815\uc758 \ud648 \ub514\ub809\ud1a0\ub9ac\uac00 \uc2e4\uc81c\ub85c \uc874\uc7ac\ud568."
+        },
+        "impact": "\uc874\uc7ac\ud558\uc9c0 \uc54a\ub294 \ud648 \ub514\ub809\ud1a0\ub9ac\ub97c \uc0dd\uc131\ub9cc \ud558\ub294 \ube44\ud30c\uad34\uc801 \ubcc0\uacbd\uc73c\ub85c \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \uae30\uc874 \ub370\uc774\ud130\ub97c \ub36e\uc5b4\uc4f0\uac70\ub098 \uc0ad\uc81c\ud558\uc9c0 \uc54a\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "\ud648 \ub514\ub809\ud1a0\ub9ac\ub85c \uc9c0\uc815\ud55c \ub514\ub809\ud1a0\ub9ac\uc758 \uc874\uc7ac \uad00\ub9ac"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-33",
+        "detail": "\uc810\uac80 \ub300\uc0c1 \uacbd\ub85c\uc5d0\uc11c \uc774\ub984\uc744 \uc704\uc7a5\ud55c \uc740\ub2c9 \ud30c\uc77c\uc744 \ubc1c\uacac\ud558\uc9c0 \ubabb\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc810\uac80 \ub300\uc0c1 \uacbd\ub85c\uc5d0\uc11c \uc774\ub984\uc744 \uc704\uc7a5\ud55c \uc740\ub2c9 \ud30c\uc77c\uc744 \ubc1c\uacac\ud558\uc9c0 \ubabb\ud568."
+        },
+        "impact": "\ud0d0\uc9c0\ub41c \ud30c\uc77c\uc774 \uc2e4\uc81c \uc545\uc131/\uc740\ub2c9 \ubaa9\uc801\uc778\uc9c0 \uc815\uc0c1 \uc560\ud50c\ub9ac\ucf00\uc774\uc158\uc758 \uce90\uc2dc \ud30c\uc77c \ub4f1\uc778\uc9c0\ub294 \uad00\ub9ac\uc790\uc758 \ud655\uc778\uc774 \ud544\uc694\ud558\uba70, \uc0ad\uc81c(rm)\ub294 \ub418\ub3cc\ub9b4 \uc218 \uc5c6\ub294 \ud30c\uad34\uc801 \ubcc0\uacbd\uc774\ub77c \uc790\ub3d9\uc73c\ub85c \uc2e4\ud589\ud558\uc9c0 \uc54a\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "\uc228\uaca8\uc9c4 \ud30c\uc77c \ubc0f \ub514\ub809\ud1a0\ub9ac \uac80\uc0c9 \ubc0f \uc81c\uac70"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-34",
+        "detail": "Finger \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "Finger \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, \ud574\ub2f9 \uc11c\ube44\uc2a4\uc5d0 \uc758\uc874\ud558\ub294 \uc608\uc0c1\uce58 \ubabb\ud55c \ud074\ub77c\uc774\uc5b8\ud2b8\uac00 \uc788\uc744 \uacbd\uc6b0 \uc989\uc2dc \uc5f0\uacb0\uc774 \ub04a\uae38 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "Finger \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-35",
+        "detail": "\uc124\uce58\ub41c \uacf5\uc720 \uc11c\ube44\uc2a4\uc5d0\uc11c \uc775\uba85/guest \uc811\uadfc\uc774 \ud5c8\uc6a9\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc124\uce58\ub41c \uacf5\uc720 \uc11c\ube44\uc2a4\uc5d0\uc11c \uc775\uba85/guest \uc811\uadfc\uc774 \ud5c8\uc6a9\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "FTP/Samba \uc124\uc815 \ubcc0\uacbd \ud6c4 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud558\uba70, \uc2e4\uc81c\ub85c \uc775\uba85/guest \uc811\uc18d\uc744 \uc774\uc6a9\ud574 \ud30c\uc77c\uc744 \ubc30\ud3ec \uc911\uc778 \uc6b4\uc601 \ud658\uacbd\uc774\ub77c\uba74 \uc11c\ube44\uc2a4 \uc911\ub2e8\uc73c\ub85c \uc774\uc5b4\uc9c8 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "\uacf5\uc720 \uc11c\ube44\uc2a4\uc5d0 \ub300\ud55c \uc775\uba85 \uc811\uadfc \uc81c\ud55c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-36",
+        "detail": "r \uacc4\uc5f4 \uc11c\ube44\uc2a4(rlogin/rsh/rexec)\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "r \uacc4\uc5f4 \uc11c\ube44\uc2a4(rlogin/rsh/rexec)\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, \ud574\ub2f9 \uc11c\ube44\uc2a4\uc5d0 \uc758\uc874\ud558\ub294 \uc608\uc0c1\uce58 \ubabb\ud55c \ud074\ub77c\uc774\uc5b8\ud2b8\uac00 \uc788\uc744 \uacbd\uc6b0 \uc989\uc2dc \uc5f0\uacb0\uc774 \ub04a\uae38 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "r \uacc4\uc5f4 \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-37",
+        "detail": "\uc810\uac80\ub41c crontab \uad00\ub828 \ud30c\uc77c 3\uac74 \ubaa8\ub450 group/other \uc4f0\uae30 \uad8c\ud55c\uc774 \uc5c6\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc810\uac80\ub41c crontab \uad00\ub828 \ud30c\uc77c 3\uac74 \ubaa8\ub450 group/other \uc4f0\uae30 \uad8c\ud55c\uc774 \uc5c6\uc74c."
+        },
+        "impact": "\ud30c\uc77c \uc18c\uc720\uc790/\uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 cron \ub370\ubaac \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568(cron \uc740 \ub9e4 \ubd84 \ud30c\uc77c\uc744 \ub2e4\uc2dc \uc77d\uc73c\ubbc0\ub85c \uc774\ubbf8 \ub4f1\ub85d\ub41c \uc791\uc5c5 \uc2e4\ud589\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c)",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "crontab \uc124\uc815\ud30c\uc77c \uad8c\ud55c \uc124\uc815 \ubbf8\ud761"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-38",
+        "detail": "echo/discard/daytime/chargen \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "echo/discard/daytime/chargen \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, \ud574\ub2f9 \uc11c\ube44\uc2a4\uc5d0 \uc758\uc874\ud558\ub294 \uc608\uc0c1\uce58 \ubabb\ud55c \ud074\ub77c\uc774\uc5b8\ud2b8(\uc608: \ub124\ud2b8\uc6cc\ud06c \uc7a5\ube44 \uc9c4\ub2e8 \ub3c4\uad6c)\uac00 \uc788\uc744 \uacbd\uc6b0 \uc989\uc2dc \uc601\ud5a5\uc744 \ubc1b\uc744 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:56+09:00",
+        "title": "DoS \uacf5\uaca9\uc5d0 \ucde8\uc57d\ud55c \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-39",
+        "detail": "NFS \uc11c\ubc84 \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131 \uc0c1\ud0dc\uc774\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "NFS \uc11c\ubc84 \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131 \uc0c1\ud0dc\uc774\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, \uc2e4\uc81c\ub85c NFS \uacf5\uc720\ub97c \uc0ac\uc6a9 \uc911\uc778 \ud074\ub77c\uc774\uc5b8\ud2b8\uac00 \uc788\ub2e4\uba74 \uc989\uc2dc \ub9c8\uc6b4\ud2b8 \uc7a5\uc560\uac00 \ubc1c\uc0dd\ud560 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:57+09:00",
+        "title": "\ubd88\ud544\uc694\ud55c NFS \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-40",
+        "detail": "/etc/exports \uc5d0 \uc720\ud6a8\ud55c \uacf5\uc720 \uc124\uc815\uc774 \uc5c6\uc5b4 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/exports \uc5d0 \uc720\ud6a8\ud55c \uacf5\uc720 \uc124\uc815\uc774 \uc5c6\uc5b4 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\uc5b4\ub5a4 \ud638\uc2a4\ud2b8\ub97c \ud5c8\uc6a9\ud560\uc9c0\ub294 \uc2e4\uc81c NFS \ud074\ub77c\uc774\uc5b8\ud2b8 \ubaa9\ub85d\uc5d0 \ub300\ud55c \uad00\ub9ac\uc790 \ud310\ub2e8\uc774 \ubc18\ub4dc\uc2dc \ud544\uc694\ud558\uba70, /etc/exports \ubcc0\uacbd \ud6c4 exportfs -ra \uc7ac\uc801\uc6a9\uc774 \ud544\uc694\ud574 \uae30\uc874 \ub9c8\uc6b4\ud2b8 \ud074\ub77c\uc774\uc5b8\ud2b8\uc758 \uc811\uadfc\uc774 \uc77c\uc2dc\uc801\uc73c\ub85c \uc601\ud5a5\uc744 \ubc1b\uc744 \uc218 \uc788\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:57+09:00",
+        "title": "NFS \uc811\uadfc \ud1b5\uc81c"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-41",
+        "detail": "automountd(autofs) \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "automountd(autofs) \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, autofs \ub85c \ub9c8\uc6b4\ud2b8\ub418\ub294 \uc6d0\uaca9/\ub124\ud2b8\uc6cc\ud06c \uacbd\ub85c\ub97c \uc2e4\uc81c\ub85c \uc0ac\uc6a9 \uc911\uc778 \ud504\ub85c\uc138\uc2a4\uac00 \uc788\ub2e4\uba74 \ud574\ub2f9 \ub9c8\uc6b4\ud2b8\uac00 \uc989\uc2dc \ub04a\uae38 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:57+09:00",
+        "title": "\ubd88\ud544\uc694\ud55c automountd \uc81c\uac70"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-42",
+        "detail": "rpcbind(portmap) \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131 \uc0c1\ud0dc\uc774\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "rpcbind(portmap) \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131 \uc0c1\ud0dc\uc774\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, RPC \uae30\ubc18 \uc11c\ube44\uc2a4(NFS/NIS \ub4f1)\ub97c \uc0ac\uc6a9 \uc911\uc778 \ud074\ub77c\uc774\uc5b8\ud2b8\uac00 \uc788\ub2e4\uba74 \uc989\uc2dc \uc601\ud5a5\uc744 \ubc1b\uc744 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:57+09:00",
+        "title": "\ubd88\ud544\uc694\ud55c RPC \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-43",
+        "detail": "NIS(ypbind/ypserv) \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "NIS(ypbind/ypserv) \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, \uc2e4\uc81c\ub85c NIS \ub85c \uacc4\uc815/\uadf8\ub8f9\uc744 \ud1b5\ud569 \uad00\ub9ac \uc911\uc778 \ud658\uacbd\uc774\ub77c\uba74 \uc778\uc99d \uccb4\uacc4 \uc804\uccb4\uc5d0 \uc601\ud5a5\uc744 \uc904 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:57+09:00",
+        "title": "NIS, NIS+ \uc810\uac80"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-44",
+        "detail": "tftp/talk/ntalk \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "tftp/talk/ntalk \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, \ub124\ud2b8\uc6cc\ud06c \uc7a5\ube44 \ud38c\uc6e8\uc5b4 \ubc30\ud3ec \ub4f1\uc5d0 tftp \ub97c \uc2e4\uc81c\ub85c \uc0ac\uc6a9 \uc911\uc778 \ud658\uacbd\uc774\ub77c\uba74 \uc989\uc2dc \uc601\ud5a5\uc744 \ubc1b\uc744 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:57+09:00",
+        "title": "tftp, talk \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-45",
+        "detail": "Postfix, Sendmail \uc5b4\ub290 \uac83\ub3c4 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "Postfix, Sendmail \uc5b4\ub290 \uac83\ub3c4 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\ubc30\ub108 \ubb38\uad6c \ubcc0\uacbd \ud6c4 \uba54\uc77c \uc11c\ube44\uc2a4 reload \uac00 \ud544\uc694\ud558\uba70, \ubc18\uc601 \uc911 \uc9e7\uc740 \uc21c\uac04 \uc2e0\uaddc \uc5f0\uacb0\uc5d0 \uc601\ud5a5\uc744 \uc904 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:57+09:00",
+        "title": "\uba54\uc77c \uc11c\ube44\uc2a4 \ubc84\uc804 \uc810\uac80"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-46",
+        "detail": "Sendmail \uc774 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638). (Postfix \ub294 postqueue \uac00 \uae30\ubcf8\uc801\uc73c\ub85c setgid \ub85c \uc81c\ud55c\ub418\uc5b4 \uc788\uc5b4 \ubcc4\ub3c4 \ub300\uc0c1\uc5d0\uc11c \uc81c\uc678)",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "Sendmail \uc774 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638). (Postfix \ub294 postqueue \uac00 \uae30\ubcf8\uc801\uc73c\ub85c setgid \ub85c \uc81c\ud55c\ub418\uc5b4 \uc788\uc5b4 \ubcc4\ub3c4 \ub300\uc0c1\uc5d0\uc11c \uc81c\uc678)"
+        },
+        "impact": "sendmail.cf \ubcc0\uacbd \ud6c4 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud558\uba70, \ubc18\uc601 \uc911 \uba54\uc77c \ucc98\ub9ac\uc5d0 \uc9e7\uc740 \uc9c0\uc5f0\uc774 \ubc1c\uc0dd\ud560 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "\uc77c\ubc18 \uc0ac\uc6a9\uc790\uc758 \uba54\uc77c \uc11c\ube44\uc2a4 \uc2e4\ud589 \ubc29\uc9c0"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-47",
+        "detail": "Postfix, Sendmail \uc5b4\ub290 \uac83\ub3c4 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "Postfix, Sendmail \uc5b4\ub290 \uac83\ub3c4 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\ub9b4\ub808\uc774 \uc81c\ud55c \uc124\uc815 \ubcc0\uacbd \ud6c4 \uba54\uc77c \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud558\uba70, \uc815\uc0c1\uc801\uc73c\ub85c \ub9b4\ub808\uc774\ub97c \ud5c8\uc6a9\ubc1b\ub358 \ub0b4\ubd80 \uc2dc\uc2a4\ud15c(\uadf8\ub8f9\uc6e8\uc5b4 \uc54c\ub9bc \uc11c\ubc84 \ub4f1)\uc774 \uc788\ub2e4\uba74 \uc989\uc2dc \uba54\uc77c \ubc1c\uc1a1\uc774 \ub9c9\ud790 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "\uc2a4\ud338 \uba54\uc77c \ub9b4\ub808\uc774 \uc81c\ud55c"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-48",
+        "detail": "Postfix, Sendmail \uc5b4\ub290 \uac83\ub3c4 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "Postfix, Sendmail \uc5b4\ub290 \uac83\ub3c4 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\uc124\uc815 \ubcc0\uacbd \ud6c4 \uba54\uc77c \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud574 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "expn, vrfy \uba85\ub839\uc5b4 \uc81c\ud55c"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-49",
+        "detail": "BIND \ud328\ud0a4\uc9c0\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "BIND \ud328\ud0a4\uc9c0\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "BIND \ubcf4\uc548 \ud328\ud0a4\uc9c0 \uc5c5\ub370\uc774\ud2b8\uc640 \ub370\ubaac \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud574 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "DNS \ubcf4\uc548 \ubc84\uc804 \ud328\uce58"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-50",
+        "detail": "named(BIND) \uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "named(BIND) \uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\uc5b4\ub5a4 \ud638\uc2a4\ud2b8(2\ucc28 \ub124\uc784\uc11c\ubc84)\ub97c \ud5c8\uc6a9\ud560\uc9c0\ub294 \uad00\ub9ac\uc790 \ud310\ub2e8\uc774 \ubc18\ub4dc\uc2dc \ud544\uc694\ud558\uba70, named.conf \ubcc0\uacbd \ud6c4 reload/reconfig \uac00 \ud544\uc694\ud574 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "DNS ZoneTransfer \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-51",
+        "detail": "named(BIND) \uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "named(BIND) \uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\uc5b4\ub5a4 \ud074\ub77c\uc774\uc5b8\ud2b8(DHCP \uc11c\ubc84 \ub4f1)\uc5d0 \ub3d9\uc801 \uc5c5\ub370\uc774\ud2b8\uac00 \ud544\uc694\ud55c\uc9c0 \uad00\ub9ac\uc790 \ud310\ub2e8\uc774 \ud544\uc694\ud558\uba70, named.conf \ubcc0\uacbd \ud6c4 reload/reconfig \uac00 \ud544\uc694\ud574 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "DNS \uc11c\ube44\uc2a4\uc758 \ucde8\uc57d\ud55c \ub3d9\uc801 \uc5c5\ub370\uc774\ud2b8 \uc124\uc815 \uae08\uc9c0"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-52",
+        "detail": "Telnet \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "Telnet \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, telnet \uc73c\ub85c\ub9cc \uc811\uc18d \uac00\ub2a5\ud55c \ub808\uac70\uc2dc \uad00\ub9ac \uacbd\ub85c\uac00 \ub0a8\uc544\uc788\ub2e4\uba74 \uad00\ub9ac \uc811\uadfc\uc774 \ub04a\uae38 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "Telnet \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-53",
+        "detail": "FTP \uc11c\ube44\uc2a4(vsftpd/proftpd)\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "FTP \uc11c\ube44\uc2a4(vsftpd/proftpd)\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\ubc30\ub108 \ubb38\uad6c \ubcc0\uacbd \ud6c4 FTP \uc11c\ube44\uc2a4 reload \uac00 \ud544\uc694\ud574 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "FTP \uc11c\ube44\uc2a4 \uc815\ubcf4 \ub178\ucd9c \uc81c\ud55c"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-54",
+        "detail": "vsftpd/proftpd/pure-ftpd/inetd FTP \ubc0f TCP/21 \ub9ac\uc2a4\ub108\uac00 \ud65c\uc131 \uc0c1\ud0dc\uac00 \uc544\ub2d8.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "vsftpd/proftpd/pure-ftpd/inetd FTP \ubc0f TCP/21 \ub9ac\uc2a4\ub108\uac00 \ud65c\uc131 \uc0c1\ud0dc\uac00 \uc544\ub2d8."
+        },
+        "impact": "TLS \uac15\uc81c \uc124\uc815\uc740 \uc720\ud6a8\ud55c \uc778\uc99d\uc11c\uac00 \uc900\ube44\ub418\uc5b4 \uc788\uc5b4\uc57c \ud558\uace0 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud558\uba70, \uc778\uc99d\uc11c\uac00 \uc5c6\ub294 \uc0c1\ud0dc\uc5d0\uc11c \uc798\ubabb \uc801\uc6a9\ud558\uba74 FTP \uc11c\ube44\uc2a4 \uc790\uccb4\uac00 \uae30\ub3d9 \uc2e4\ud328\ud560 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:58+09:00",
+        "title": "\uc554\ud638\ud654\ub418\uc9c0 \uc54a\ub294 FTP \uc11c\ube44\uc2a4 \ube44\ud65c\uc131\ud654"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-55",
+        "detail": "vsftpd \uc0ac\uc6a9\uc790 \ubaa9\ub85d \ud30c\uc77c\uc744 \ucc3e\uc744 \uc218 \uc5c6\uc5b4 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "vsftpd \uc0ac\uc6a9\uc790 \ubaa9\ub85d \ud30c\uc77c\uc744 \ucc3e\uc744 \uc218 \uc5c6\uc5b4 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\ub300\uc0c1 \uacc4\uc815\uc758 \ub85c\uadf8\uc778 \uc178\ub9cc nologin\uc73c\ub85c \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. usermod -s \ub85c \uc989\uc2dc \ub418\ub3cc\ub9b4 \uc218 \uc788\ub294 \uac00\uc5ed\uc801 \ubcc0\uacbd\uc784",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "FTP \uacc4\uc815 shell \uc81c\ud55c"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-56",
+        "detail": "FTP \uc11c\ube44\uc2a4(vsftpd/proftpd)\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "FTP \uc11c\ube44\uc2a4(vsftpd/proftpd)\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\uc811\uadfc \uc81c\uc5b4 \uaddc\uce59 \ubcc0\uacbd\uc740 \uc815\uc0c1\uc801\uc778 FTP \ud074\ub77c\uc774\uc5b8\ud2b8\uc758 \uc811\uc18d\uc744 \ucc28\ub2e8\ud560 \uc704\ud5d8\uc774 \uc788\uc73c\uba70, \ud5c8\uc6a9\ud560 IP \ubaa9\ub85d\uc740 \uad00\ub9ac\uc790 \ud310\ub2e8\uc774 \ud544\uc694\ud574 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "FTP \uc11c\ube44\uc2a4 \uc811\uadfc \uc81c\uc5b4 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-57",
+        "detail": "FTP \uc11c\ube44\uc2a4(vsftpd/proftpd)\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "FTP \uc11c\ube44\uc2a4(vsftpd/proftpd)\uac00 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc544 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "ftpusers \ud30c\uc77c\uc5d0 root \ub97c \ud55c \uc904 \ucd94\uac00\ud558\ub294 \ub2e8\uc21c \ubcc0\uacbd\uc73c\ub85c, FTP \ub370\ubaac\uc740 \ub9e4 \uc5f0\uacb0\ub9c8\ub2e4 \uc774 \ud30c\uc77c\uc744 \ub2e4\uc2dc \uc77d\uc73c\ubbc0\ub85c \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "Ftpusers \ud30c\uc77c \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-58",
+        "detail": "SNMP \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "SNMP \uc11c\ube44\uc2a4\uac00 \ube44\ud65c\uc131\ud654\ub418\uc5b4 \uc788\uac70\ub098 \uc124\uce58\ub418\uc5b4 \uc788\uc9c0 \uc54a\uc74c."
+        },
+        "impact": "\uc11c\ube44\uc2a4 \uc911\uc9c0(stop/disable)\ub97c \uc218\ubc18\ud558\ub294 \ubcc0\uacbd\uc73c\ub85c, \ubaa8\ub2c8\ud130\ub9c1 \uc2dc\uc2a4\ud15c(Zabbix/Nagios \ub4f1)\uc774 SNMP \ub85c \uc0c1\ud0dc\ub97c \uc218\uc9d1 \uc911\uc774\ub77c\uba74 \uc989\uc2dc \ubaa8\ub2c8\ud130\ub9c1 \uc7a5\uc560\uac00 \ubc1c\uc0dd\ud560 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "\ubd88\ud544\uc694\ud55c SNMP \uc11c\ube44\uc2a4 \uad6c\ub3d9 \uc810\uac80"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-59",
+        "detail": "snmpd \uc124\uc815 \ud30c\uc77c\uc744 \ucc3e\uc744 \uc218 \uc5c6\uc5b4 SNMP \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "snmpd \uc124\uc815 \ud30c\uc77c\uc744 \ucc3e\uc744 \uc218 \uc5c6\uc5b4 SNMP \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "v1/v2c \uc124\uc815 \ube44\ud65c\uc131\ud654 \ubc0f v3 \uc0ac\uc6a9\uc790 \uc0dd\uc131\uc740 \uae30\uc874 SNMP \ud3f4\ub9c1 \ub3c4\uad6c\uc758 \uc778\uc99d \ubc29\uc2dd\uc744 \ubc14\uafb8\ub294 \uc791\uc5c5\uc73c\ub85c, \ubaa8\ub2c8\ud130\ub9c1 \uc2dc\uc2a4\ud15c \ucabd \uc124\uc815\ub3c4 \ud568\uaed8 \ubcc0\uacbd\ub418\uc5b4\uc57c \ud558\uba70 snmpd \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud574 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "\uc548\uc804\ud55c SNMP \ubc84\uc804 \uc0ac\uc6a9"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-60",
+        "detail": "snmpd \uc124\uc815 \ud30c\uc77c\uc774 \uc5c6\uc5b4 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "snmpd \uc124\uc815 \ud30c\uc77c\uc774 \uc5c6\uc5b4 \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "community string \uc744 \ubcc0\uacbd\ud558\uba74 \uae30\uc874\uc5d0 \uc774 \uac12\uc73c\ub85c \ud3f4\ub9c1\ud558\ub358 \ubaa8\ub4e0 \ubaa8\ub2c8\ud130\ub9c1 \ub3c4\uad6c\uc758 \uc124\uc815\ub3c4 \ud568\uaed8 \ubc14\uafd4\uc57c \ud558\uba70, \uc0c8 \uac12\uc740 \uad00\ub9ac\uc790\ub9cc \uc54c \uc218 \uc788\uc5b4 \ubb34\uc791\uc704\ub85c \uc790\ub3d9 \uc0dd\uc131\ud560 \uacbd\uc6b0 \uad00\ub9ac\uc790 \uc2a4\uc2a4\ub85c\ub3c4 \uc811\uadfc\ud560 \uc218 \uc5c6\uac8c \ub420 \uc704\ud5d8\uc774 \uc788\uc5b4 \ubc18\ub4dc\uc2dc \uad00\ub9ac\uc790\uac00 \uc9c0\uc815\ud55c \uac12\uc73c\ub85c\ub9cc \ubcc0\uacbd\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "SNMP Community String \ubcf5\uc7a1\uc131 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-61",
+        "detail": "snmpd \uc124\uc815 \ud30c\uc77c\uc744 \ucc3e\uc744 \uc218 \uc5c6\uc5b4 SNMP \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638).",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "snmpd \uc124\uc815 \ud30c\uc77c\uc744 \ucc3e\uc744 \uc218 \uc5c6\uc5b4 SNMP \ubbf8\uc0ac\uc6a9\uc73c\ub85c \ud310\ub2e8\ub428. \ud574\ub2f9 \uc5c6\uc74c(\uc591\ud638)."
+        },
+        "impact": "\uc811\uadfc \ud5c8\uc6a9 \uc18c\uc2a4\ub97c \uc881\ud788\uba74 \uae30\uc874 \ubaa8\ub2c8\ud130\ub9c1 \uc11c\ubc84\uc758 \ud3f4\ub9c1\uc774 \ucc28\ub2e8\ub420 \uc218 \uc788\uace0 snmpd \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud574 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "SNMP Access Control \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-62",
+        "detail": "\ucf58\uc194/\uc6d0\uaca9 \ub85c\uadf8\uc778 \uacbd\uace0\ubb38\uacfc \uc0ac\uc6a9 \uc911\uc778 FTP\u00b7SMTP\u00b7DNS \uc11c\ube44\uc2a4 \ubc30\ub108 \uae30\uc900 \ucda9\uc871.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\ucf58\uc194/\uc6d0\uaca9 \ub85c\uadf8\uc778 \uacbd\uace0\ubb38\uacfc \uc0ac\uc6a9 \uc911\uc778 FTP\u00b7SMTP\u00b7DNS \uc11c\ube44\uc2a4 \ubc30\ub108 \uae30\uc900 \ucda9\uc871."
+        },
+        "impact": "\ub85c\uadf8\uc778 \ubc0f \uc0ac\uc6a9 \uc911 \uc11c\ube44\uc2a4 \ubc30\ub108 \ubcc0\uacbd\u00b7\uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud560 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\ud558",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "\ub85c\uadf8\uc778 \uc2dc \uacbd\uace0 \uba54\uc2dc\uc9c0 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-63",
+        "detail": "/etc/sudoers.d/user: \uad8c\ud55c=644;\uc77c\ubc18 \uacc4\uc815 NOPASSWD:ALL \uaddc\uce59 \uc874\uc7ac: instructor_db ALL=(ALL) NOPASSWD: ALL|user ALL=(ALL) NOPASSWD:ALL|instructor_db ALL=(ALL) NOPASSWD:ALL|instructor-db ALL=(ALL) NOPASSWD:ALL",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/etc/sudoers.d/user: \uad8c\ud55c=644;\uc77c\ubc18 \uacc4\uc815 NOPASSWD:ALL \uaddc\uce59 \uc874\uc7ac: instructor_db ALL=(ALL) NOPASSWD: ALL|user ALL=(ALL) NOPASSWD:ALL|instructor_db ALL=(ALL) NOPASSWD:ALL|instructor-db ALL=(ALL) NOPASSWD:ALL"
+        },
+        "impact": "/etc/sudoers \ub294 \ubb38\ubc95 \uc624\ub958 \uc2dc \uc2dc\uc2a4\ud15c \uc804\uccb4\uc758 sudo \uad8c\ud55c\uc774 \ub9c8\ube44\ub420 \uc218 \uc788\ub294 \ub9e4\uc6b0 \ubbfc\uac10\ud55c \ud30c\uc77c\uc774\uba70, NOPASSWD:ALL \uaddc\uce59\uc744 \uac00\uc9c4 \uacc4\uc815\uc774 \uc2e4\uc81c\ub85c \ud544\uc694\ud55c \uc790\ub3d9\ud654 \uacc4\uc815\uc778\uc9c0 \uad00\ub9ac\uc790 \ud310\ub2e8\uc774 \ud544\uc694\ud574 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\ucde8\uc57d",
+        "timestamp": "2026-08-30T18:12:59+09:00",
+        "title": "sudo \uba85\ub839\uc5b4 \uc811\uadfc \uad00\ub9ac"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-64",
+        "detail": "dnf \uae30\uc900 \uc124\uce58 \uac00\ub2a5\ud55c \uc5c5\ub370\uc774\ud2b8\uac00 64\uac74 \uc788\uc74c(\ub85c\uceec \uce90\uc2dc \uae30\uc900).",
+        "duration_seconds": 2,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "dnf \uae30\uc900 \uc124\uce58 \uac00\ub2a5\ud55c \uc5c5\ub370\uc774\ud2b8\uac00 64\uac74 \uc788\uc74c(\ub85c\uceec \uce90\uc2dc \uae30\uc900)."
+        },
+        "impact": "\ud328\ud0a4\uc9c0 \uc5c5\ub370\uc774\ud2b8\ub294 \ucee4\ub110/\ub77c\uc774\ube0c\ub7ec\ub9ac \uad50\uccb4\ub85c \uc778\ud55c \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\u00b7\uc7ac\ubd80\ud305\uc774 \ud544\uc694\ud560 \uc218 \uc788\uace0 \uc758\uc874\uc131 \ucda9\ub3cc \ub4f1 \uc608\uce21 \ubd88\uac00\ud55c \uc601\ud5a5\uc744 \uc904 \uc218 \uc788\uc5b4 \ubc18\ub4dc\uc2dc \uad00\ub9ac\uc790 \uc2b9\uc778 \ubc0f \uc0ac\uc804 \uac80\ud1a0\uac00 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc0c1",
+        "status": "\ucde8\uc57d",
+        "timestamp": "2026-08-30T18:13:01+09:00",
+        "title": "\uc8fc\uae30\uc801 \ubcf4\uc548 \ud328\uce58 \ubc0f \ubca4\ub354 \uad8c\uace0\uc0ac\ud56d \uc801\uc6a9"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-65",
+        "detail": "\uc2e4\uc81c \uc2dc\uac01 \ub3d9\uae30\ud654 \uc131\uacf5 \ud655\uc778: chrony \ub3d9\uae30\ud654 \ud53c\uc5b4",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "\uc2e4\uc81c \uc2dc\uac01 \ub3d9\uae30\ud654 \uc131\uacf5 \ud655\uc778: chrony \ub3d9\uae30\ud654 \ud53c\uc5b4"
+        },
+        "impact": "\uc2dc\uac01 \ub3d9\uae30\ud654 \uc11c\ube44\uc2a4\ub97c \ud65c\uc131\ud654\ud558\uba74 \uc2dc\uc2a4\ud15c \uc2dc\uac04\uc774 \uc989\uc2dc \ud06c\uac8c \ubcf4\uc815\ub420 \uc218 \uc788\uc5b4(\uc2dc\uac04 \uc810\ud504) \ub85c\uadf8 \ud0c0\uc784\uc2a4\ud0ec\ud504 \uc5f0\uc18d\uc131, TLS \uc778\uc99d\uc11c \uc720\ud6a8\uae30\uac04 \uac80\uc99d, cron/\ubc30\uce58 \uc2a4\ucf00\uc904 \ub4f1\uc5d0 \uc21c\uac04\uc801\uc778 \uc601\ud5a5\uc744 \uc904 \uc218 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:13:01+09:00",
+        "title": "NTP \ubc0f \uc2dc\uac01 \ub3d9\uae30\ud654 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc2b9\uc778\uc694\uccad",
+        "code": "U-66",
+        "detail": "auth, mail, daemon/local, cron, alert/emerg \uc815\ucc45\uacfc \ud65c\uc131 \ub85c\uae45 \uc11c\ube44\uc2a4\ub97c \ud655\uc778\ud568.",
+        "duration_seconds": 0,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "auth, mail, daemon/local, cron, alert/emerg \uc815\ucc45\uacfc \ud65c\uc131 \ub85c\uae45 \uc11c\ube44\uc2a4\ub97c \ud655\uc778\ud568."
+        },
+        "impact": "\ub85c\uae45 \uaddc\uce59 \ucd94\uac00 \ud6c4 rsyslog \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ud544\uc694\ud558\uba70, \ubc18\uc601 \uc911 \uc9e7\uc740 \uc21c\uac04 \ub85c\uadf8 \uc720\uc2e4 \uac00\ub2a5\uc131\uc774 \uc788\uc5b4 \uad00\ub9ac\uc790 \uc2b9\uc778\uc774 \ud544\uc694\ud568",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:13:01+09:00",
+        "title": "\uc815\ucc45\uc5d0 \ub530\ub978 \uc2dc\uc2a4\ud15c \ub85c\uae45 \uc124\uc815"
+    },
+    {
+        "action": "\uc810\uac80",
+        "action_tag": "\uc790\ub3d9\uc870\uce58",
+        "code": "U-67",
+        "detail": "/var/log\ub294 root \uc18c\uc720/other \uc4f0\uae30 \uae08\uc9c0\uc774\uace0 \uc804\uccb4 \ub85c\uadf8 \ud30c\uc77c\uc740 root \uc18c\uc720/640 \uc774\ud558.",
+        "duration_seconds": 1,
+        "evidence_data": {
+            "\uc810\uac80 \uacb0\uacfc": "/var/log\ub294 root \uc18c\uc720/other \uc4f0\uae30 \uae08\uc9c0\uc774\uace0 \uc804\uccb4 \ub85c\uadf8 \ud30c\uc77c\uc740 root \uc18c\uc720/640 \uc774\ud558."
+        },
+        "impact": "\ub514\ub809\ud1a0\ub9ac/\ud30c\uc77c \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c\ub9cc \ubcc0\uacbd\ub418\uba70 \uc11c\ube44\uc2a4 \uc7ac\uc2dc\uc791\uc774 \ubd88\ud544\uc694\ud568. \ub85c\uae45 \ub370\ubaac\uc740 \uc774\ubbf8 \uc5f4\ub9b0 \ud30c\uc77c \ub514\uc2a4\ud06c\ub9bd\ud130\uc5d0 \uacc4\uc18d \uae30\ub85d\ud558\ubbc0\ub85c \uc9c4\ud589 \uc911\uc778 \ub85c\uadf8 \uae30\ub85d\uc5d0\ub294 \uc601\ud5a5\uc774 \uc5c6\uc74c",
+        "os_type": "rocky 9.8",
+        "release_hash": "0159deaf050c467b35d9beb23e7f30dcb499cbfe1aa8eb8f0e86aa4cb7e04ed6",
+        "severity": "\uc911",
+        "status": "\uc591\ud638",
+        "timestamp": "2026-08-30T18:13:02+09:00",
+        "title": "\ub85c\uadf8 \ub514\ub809\ud130\ub9ac \uc18c\uc720\uc790 \ubc0f \uad8c\ud55c \uc124\uc815"
+    }
+]

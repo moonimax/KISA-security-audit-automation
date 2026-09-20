@@ -1,0 +1,35 @@
+
+mysql_security_remote_dir: "/var/tmp/kisa_check"
+mysql_security_defaults_file: "/etc/mysql_security/.mysql_credentials.cnf"
+
+mysql_security_admin_user: "root"
+mysql_security_admin_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          36613530633334323531306139316162373031323438313431333335356365633461363938633235
+          3763663864653138373235626337393065633836633664620a353632643863303238393337643064
+          63363962303266663436356539666238343837626633336534656233386162313438373566623534
+          6532376331356264650a313231633863323061393262343835343366313133646133396432363939
+          6363
+mysql_security_conn_host: "127.0.0.1"
+mysql_security_conn_port: 3306
+
+mysql_security_allowed_admin_accounts:
+  - "root@localhost"
+  - "mysql.session@localhost"
+  - "mysql.sys@localhost"
+  - "mysql.infoschema@localhost"
+
+mysql_security_allowed_remote_hosts: []
+
+mysql_security_my_cnf_path: "/etc/my.cnf"
+mysql_security_mysqld_user: "mysql"
+
+mysql_security_min_safe_version: "8.0.36"
+
+mysql_security_password_policy: "MEDIUM"
+mysql_security_password_min_length: 8
+mysql_security_password_mixed_case_count: 1
+mysql_security_password_number_count: 1
+mysql_security_password_special_char_count: 1
+mysql_security_password_lifetime_days: 90
+

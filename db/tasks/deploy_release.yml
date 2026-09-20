@@ -1,0 +1,183 @@
+---
+
+- name: 배포 원본(check/fix/lib)과 빌더 존재 확인 (컨트롤 노드)
+  ansible.builtin.stat:
+    path: "{{ item }}"
+  loop:
+    - "{{ playbook_dir }}/../check"
+    - "{{ playbook_dir }}/../fix"
+    - "{{ playbook_dir }}/../lib"
+    - "{{ playbook_dir }}/../tools/build_release.sh"
+  register: kisa_dbms_source_stats
+  delegate_to: localhost
+  become: false
+  run_once: true
+
+- name: 배포 원본 부재 시 중단
+  ansible.builtin.assert:
+    that:
+      - kisa_dbms_source_stats.results | map(attribute='stat.exists') | min
+    fail_msg: "check/fix/lib 디렉터리 또는 tools/build_release.sh 가 없습니다."
+  run_once: true
+
+- name: release 빌드용 임시 디렉터리 생성 (컨트롤 노드)
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: mysql-security-release
+  register: kisa_dbms_release_build_dir
+  changed_when: false
+  delegate_to: localhost
+  become: false
+  run_once: true
+
+- name: 내용 manifest와 단일 archive 생성 (컨트롤 노드)
+  ansible.builtin.command:
+    argv:
+      - "{{ playbook_dir }}/../tools/build_release.sh"
+      - "{{ playbook_dir }}/.."
+      - "{{ kisa_dbms_release_build_dir.path }}"
+  register: kisa_dbms_release_build
+  changed_when: false
+  delegate_to: localhost
+  become: false
+  run_once: true
+
+- name: release ID 형식 검증
+  ansible.builtin.assert:
+    that:
+      - kisa_dbms_release_build.stdout | trim is match('^[a-f0-9]{64}$')
+    fail_msg: "release builder가 유효한 SHA-256 ID를 반환하지 않았습니다."
+  run_once: true
+
+- name: release 변수 설정
+  ansible.builtin.set_fact:
+    kisa_dbms_release_id: "{{ kisa_dbms_release_build.stdout | trim }}"
+    kisa_dbms_release_archive: "{{ kisa_dbms_release_build_dir.path }}/{{ kisa_dbms_release_build.stdout | trim }}.tar.gz"
+    kisa_dbms_remote_active_dir: "{{ mysql_security_remote_dir }}/current"
+
+- name: release 저장 디렉터리 생성
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  loop:
+    - "{{ mysql_security_remote_dir }}"
+    - "{{ mysql_security_remote_dir }}/releases"
+    - "{{ mysql_security_remote_dir }}/.incoming"
+
+- name: 현재 release ID와 실제 파일 무결성 확인
+  ansible.builtin.shell:
+    cmd: |
+      set -uo pipefail
+      root={{ mysql_security_remote_dir | quote }}
+      active={{ kisa_dbms_remote_active_dir | quote }}
+      expected={{ kisa_dbms_release_id | quote }}
+      [ -L "$active" ] || exit 1
+      resolved="$(readlink -f -- "$active")" || exit 1
+      [ "$resolved" = "$root/releases/$expected" ] || exit 1
+      cd "$resolved" || exit 1
+      [ "$(cat .release-id 2>/dev/null)" = "$expected" ] || exit 1
+      [ -d check ] && [ -d fix ] && [ -d lib ] || exit 1
+      sha256sum --check .release-manifest >/dev/null 2>&1 || exit 1
+      [ "$(wc -l < .release-manifest)" -eq "$(find check fix lib -type f | wc -l)" ] || exit 1
+      ! find . -maxdepth 1 -type l -print -quit | grep -q . || exit 1
+      ! find check fix lib -type f ! -perm -u+x -print -quit | grep -q . || exit 1
+  args:
+    executable: /bin/bash
+  register: kisa_dbms_current_validation
+  changed_when: false
+  failed_when: false
+
+- name: 변경 또는 무결성 이상 시 단일 release archive 전송
+  ansible.builtin.copy:
+    src: "{{ kisa_dbms_release_archive }}"
+    dest: "{{ mysql_security_remote_dir }}/.incoming/{{ kisa_dbms_release_id }}.tar.gz"
+    owner: root
+    group: root
+    mode: "0600"
+  when: kisa_dbms_current_validation.rc != 0
+
+- name: release 검증·설치 후 current 원자적 전환
+  ansible.builtin.shell:
+    cmd: |
+      set -euo pipefail
+      root={{ mysql_security_remote_dir | quote }}
+      release_id={{ kisa_dbms_release_id | quote }}
+      archive="$root/.incoming/$release_id.tar.gz"
+      target="$root/releases/$release_id"
+
+      command -v flock >/dev/null 2>&1
+      exec 9>"$root/.deploy.lock"
+      flock -w 60 9
+
+      stage="$(mktemp -d "$root/releases/.staging-$release_id.XXXXXX")"
+      cleanup_release_stage() {
+          if [ -n "${stage:-}" ] && [ -d "$stage" ]; then
+              rm -rf -- "$stage"
+          fi
+          rm -f -- "$archive"
+      }
+      trap cleanup_release_stage EXIT HUP INT TERM
+
+      validate_release() {
+          local dir="$1"
+          [ -d "$dir" ] || return 1
+          (
+              cd "$dir"
+              [ "$(cat .release-id 2>/dev/null)" = "$release_id" ] || exit 1
+              [ -d check ] && [ -d fix ] && [ -d lib ] || exit 1
+              sha256sum --check .release-manifest >/dev/null 2>&1 || exit 1
+              [ "$(wc -l < .release-manifest)" -eq "$(find check fix lib -type f | wc -l)" ] || exit 1
+              ! find check fix lib -type f ! -perm -u+x -print -quit | grep -q . || exit 1
+              ! find . -maxdepth 1 -type l -print -quit | grep -q .
+          )
+      }
+
+      tar -xzf "$archive" -C "$stage" --no-same-owner
+      [ "$(cat "$stage/.release-id" 2>/dev/null)" = "$release_id" ]
+      chown -R root:root "$stage"
+      chmod 0755 "$stage" "$stage/check" "$stage/fix" "$stage/lib"
+      find "$stage/check" "$stage/fix" "$stage/lib" -type f -exec chmod 0755 {} +
+      chmod 0644 "$stage/.release-id" "$stage/.release-manifest"
+      validate_release "$stage"
+
+      if [ -e "$target" ] && ! validate_release "$target"; then
+          quarantine="$root/releases/.quarantine-$release_id-$(date +%s)-$$"
+          mv -- "$target" "$quarantine"
+      fi
+      if [ ! -e "$target" ]; then
+          mv -- "$stage" "$target"
+          stage=""
+      fi
+
+      next_link="$root/.current-$release_id-$$"
+      ln -s "releases/$release_id" "$next_link"
+      mv -Tf -- "$next_link" "$root/current"
+      validate_release "$root/current"
+  args:
+    executable: /bin/bash
+  when: kisa_dbms_current_validation.rc != 0
+
+- name: 활성 release 최종 경로 확인
+  ansible.builtin.command:
+    cmd: "readlink -f {{ kisa_dbms_remote_active_dir }}"
+  register: kisa_dbms_active_release
+  changed_when: false
+  failed_when: kisa_dbms_active_release.stdout != (mysql_security_remote_dir ~ '/releases/' ~ kisa_dbms_release_id)
+
+- name: release 배포 요약
+  ansible.builtin.debug:
+    msg: >-
+      {{ inventory_hostname }}: release {{ kisa_dbms_release_id }} 활성화
+      (archive 전송={{ '생략' if kisa_dbms_current_validation.rc == 0 else '수행' }})
+
+- name: release 빌드 임시 파일 정리 (컨트롤 노드)
+  ansible.builtin.file:
+    path: "{{ kisa_dbms_release_build_dir.path }}"
+    state: absent
+  changed_when: false
+  delegate_to: localhost
+  become: false
+  run_once: true

@@ -1,0 +1,9 @@
+---
+kisa_local_root: "{{ playbook_dir }}/.."
+kisa_local_check_dir: "{{ kisa_local_root }}/check"
+kisa_local_fix_dir: "{{ kisa_local_root }}/fix"
+kisa_local_lib_dir: "{{ kisa_local_root }}/lib"
+
+kisa_remote_dir: /opt/kisa_web_v1
+kisa_remote_active_dir: "{{ kisa_remote_dir }}/current"
+kisa_check_item_timeout: 120

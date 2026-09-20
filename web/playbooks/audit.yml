@@ -1,0 +1,99 @@
+---
+
+- name: "[web_v1] KISA 웹 서비스 자동조치 (action_tag=자동조치 항목만, 조치 전용)"
+  hosts: "{{ target_hosts | default('all') }}"
+  become: yes
+  gather_facts: no
+
+  pre_tasks:
+    - name: 배포 여부 확인 (deploy.yml 선행 실행 검증)
+      ansible.builtin.stat:
+        path: "{{ kisa_remote_active_dir }}/fix"
+      register: kisa_fix_dir_stat
+
+    - name: 미배포 시 중단
+      ansible.builtin.assert:
+        that:
+          - kisa_fix_dir_stat.stat.exists
+          - kisa_fix_dir_stat.stat.isdir
+        fail_msg: >-
+          {{ kisa_remote_active_dir }}/fix 가 없습니다. 먼저
+          'ansible-playbook playbooks/deploy.yml' 로 check/fix/lib 를 배포하세요.
+
+    - name: check.yml 리포트 파일 존재 확인
+      ansible.builtin.stat:
+        path: "{{ playbook_dir }}/../reports/{{ inventory_hostname }}_check.json"
+      register: kisa_check_report_stat
+      delegate_to: localhost
+      become: no
+
+    - name: 리포트 부재 시 중단
+      ansible.builtin.assert:
+        that:
+          - kisa_check_report_stat.stat.exists
+        fail_msg: >-
+          reports/{{ inventory_hostname }}_check.json 이 없습니다. 먼저
+          'ansible-playbook playbooks/check.yml -e target_hosts={{ inventory_hostname }}'
+          를 실행해 점검 리포트를 생성하세요.
+
+    - name: check.yml 리포트 로드
+      ansible.builtin.set_fact:
+        kisa_check_data: "{{ lookup('file', playbook_dir ~ '/../reports/' ~ inventory_hostname ~ '_check.json') | from_json }}"
+
+    - name: 리포트에서 자동조치 대상(취약 + action_tag=자동조치)만 추출
+      ansible.builtin.set_fact:
+        kisa_auto_items: "{{ kisa_check_data | selectattr('status', 'equalto', '취약') | selectattr('action_tag', 'equalto', '자동조치') | list }}"
+
+  tasks:
+    - name: "자동조치 대상 조치 실행 ({{ kisa_auto_items | length }}건)"
+      ansible.builtin.command:
+        cmd: "{{ kisa_remote_active_dir }}/fix/{{ item.code }}_fix.sh"
+      environment:
+        KISA_APPROVAL: "true"
+      register: kisa_auto_fix_raw
+      loop: "{{ kisa_auto_items }}"
+      loop_control:
+        label: "{{ item.code }}"
+      when: kisa_auto_items | length > 0
+      changed_when: false
+      failed_when: false
+
+    - name: 조치 결과 JSON 파싱 (스크립트 자체 사후 검증 포함된 최종 상태)
+      ansible.builtin.set_fact:
+        kisa_auto_fix_results: "{{ kisa_auto_fix_raw.results | map(attribute='stdout') | map('from_json') | list }}"
+      when: kisa_auto_items | length > 0
+
+    - name: 조치 결과 콘솔 출력
+      ansible.builtin.debug:
+        msg: "[{{ item.code }}] status={{ item.status }} :: {{ item.detail }}"
+      loop: "{{ kisa_auto_fix_results | default([]) }}"
+      loop_control:
+        label: "{{ item.code }}"
+
+  post_tasks:
+    - name: 최종 리포트 목록 구성
+      ansible.builtin.set_fact:
+        kisa_final_results: >-
+          {{ (kisa_check_data | rejectattr('code', 'in', (kisa_auto_fix_results | default([]) | map(attribute='code') | list)) | list)
+             + (kisa_auto_fix_results | default([])) }}
+
+    - name: 최종 리포트 코드 순 정렬
+      ansible.builtin.set_fact:
+        kisa_final_results: "{{ kisa_final_results | sort(attribute='code') }}"
+
+    - name: 리포트 디렉토리 생성 (컨트롤 노드)
+      ansible.builtin.file:
+        path: "{{ playbook_dir }}/../reports"
+        state: directory
+        mode: "0755"
+      delegate_to: localhost
+      become: no
+      run_once: true
+
+    - name: 자동조치 결과 반영된 최종 JSON 저장 (컨트롤 노드)
+      ansible.builtin.copy:
+        content: "{{ kisa_final_results | to_nice_json }}"
+        dest: "{{ playbook_dir }}/../reports/{{ inventory_hostname }}_audit.json"
+        mode: "0644"
+      delegate_to: localhost
+      become: no
